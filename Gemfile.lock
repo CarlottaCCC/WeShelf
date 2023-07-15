@@ -93,10 +93,16 @@ GEM
     arbre (1.6.0)
       activesupport (>= 3.0.0, < 7.1)
       ruby2_keywords (>= 0.0.2, < 1.0)
+    autoprefixer-rails (10.4.13.0)
+      execjs (~> 2)
     bcrypt (3.1.19)
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
+    bootstrap (4.3.1)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 1.14.3, < 2)
+      sassc-rails (>= 2.0.0)
     builder (3.2.4)
     cancancan (3.5.0)
     capybara (3.39.2)
@@ -133,6 +139,7 @@ GEM
       request_store (>= 1.0)
       ruby2_keywords
     erubi (1.12.0)
+    execjs (2.8.1)
     faraday (2.7.7)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
@@ -248,6 +255,7 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
       terrapin (~> 0.6.0)
+    popper_js (1.16.1)
     public_suffix (5.0.1)
     puma (5.6.6)
       nio4r (~> 2.0)
@@ -369,6 +377,7 @@ DEPENDENCIES
   acts_as_follower!
   acts_as_votable
   bootsnap
+  bootstrap (~> 4.3.1)
   cancancan
   capybara
   debug
@@ -378,6 +387,7 @@ DEPENDENCIES
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
+  jquery-rails
   omniauth
   omniauth-google-oauth2
   omniauth-rails_csrf_protection

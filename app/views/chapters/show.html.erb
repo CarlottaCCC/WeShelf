@@ -1,0 +1,76 @@
+<%= stylesheet_link_tag "style.css" %>
+<center><h1 class="titolocap"><%= @chapter.titolo %></h1></center>
+<div id="magazione">
+<div class="pagina1">
+<div class="pag" id="pag">
+<p class="p" id="p"><%= @chapter.testo %></p>
+</div>
+</div>
+<div class="likecap">
+Likes: 
+<p class="votes"><%= @chapter.votes_for.up.size %></p>
+</div>
+<p class="tratti" id="tr">-------------------------</p>
+
+<% if user_signed_in? %>
+<% if current_user.voted_up_on? @chapter %>
+<%= button_to "Unvote", unvote_chapter_path(@chapter), method: :delete, id:"bottone1" %>
+<% else %>
+<%= button_to "Vote", vote_chapter_path(@chapter), method: :post, id:"bottone1" %>
+<% end %>
+<% end %>
+
+
+<div class="comments">
+<h2 class="comment-title">Commenti</h2>
+<div class="comment">
+<% @chapter.comments.each do |comment| %>
+  <div class="flex-grow-1 ms-2 ms-sm-3" id="flex">
+  <p>
+    <div class="comment-meta d-flex align-items-baseline"> <strong>---------------------</strong> </div>
+    <!-- Devi inserire user a commento 
+    per poter visualizzare l utente che ha commentato-->
+    <div class="comment-user"><%= comment.user.username %>:</div>
+    <div class="comment-body"><%= comment.testo %></div>
+  </p>
+
+  <% if comment.user == current_user %>
+
+  <div class="destroy">
+  
+
+   <%= link_to "Destroy", comment_path(comment), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+
+  <%= link_to "Edit", edit_comment_path(comment) %>
+  
+  
+  </div>
+
+  <%end%>
+
+  </div>
+<% end %>
+</div>
+</div>
+
+
+<% if user_signed_in? %>
+
+<div class="box-commenti">
+<h2 class="commenta" id="commenta">Commenta:</h2>
+
+<%= form_with model: [@chapter,@chapter.comments.build ] do |form| %>
+  <p>
+    <%= form.label :testo, id:"labelform" %><br>
+    <%= form.text_area :testo, id:"textareaform" %>
+  </p>
+  <p>
+    <%= form.submit :Submit, id: "botto" %>
+  </p>
+<% end %> 
+</div>             
+
+<%end%>

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  titolo: MyText
+  testo: MyText
+  mipiace: 1
+  book: one
+
+two:
+  titolo: MyText
+  testo: MyText
+  mipiace: 1
+  book: two

@@ -1,0 +1,184 @@
+<%= stylesheet_link_tag "style.css" %>
+<div class="classtitolo">
+<h1 class="titololibro"> Titolo: <%= @book.titolo %></h1>
+</div>
+
+<div class="classimmagine">
+<%= image_tag @book.cover.url(:medium), :class=> "imglibro" %>
+</div>
+<p class="statolibro"><strong>Status:</strong> <%= @book.stato %></p>
+<%if @book.user == current_user %>
+<p class="visibilita"><strong>Visibilità:</strong> <%= @book.visibility %></p>
+<%end%>
+<p class="tramalibro"><strong>Trama:</strong> <%= @book.trama %></p>
+
+<%if @book.user == current_user %>
+<%if @book.stato == 'inpubblicazione' %>
+<p> <%= link_to "Clicca qui per dichiarare il completamento del libro", dichiarapubblicato_book_path(@book) %> (ATTENZIONE AZIONE NON REVERSIBILE!) </p>
+<%end%>
+<%end%>
+
+
+<%if @book.user == current_user %>
+<%if @book.visibility == 'privato' %>
+<p> <%= link_to "Clicca qui per rendere il tuo libro visibile", cambiaprivacy_book_path(@book) %>  </p>
+<%end%>
+<%if @book.visibility == 'visibile' %>
+<p> <%= link_to "Clicca qui per rendere il tuo libro privato", cambiaprivacy_book_path(@book) %>  </p>
+<%end%>
+<%end%>
+
+
+<h2 class="capitolilibro">CAPITOLI</h2>
+<% @book.chapters.each do |chapter| %>
+  <p class="tratti">------------------</p>
+  <p class="paragrafocapitolo">
+    <strong class="titolocapitolo">Titolo:</strong>
+     <%= link_to chapter.titolo, chapter, id: "chapter" %>
+     <br>
+     <div class="voti">
+     <strong class="likecapitolo">Likes:</strong>
+     <%= chapter.votes_for.up.size%>
+     </div>
+     <br>
+
+     <% if @book.user == current_user %>
+     <%= link_to "Destroy", chapter_path(chapter), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+     
+      
+     <div class="edit">
+     <%= link_to "Edit", edit_chapter_path(chapter), id: "edit" %>
+     </div>
+     <%end%>
+  </p>
+<% end %>
+
+
+
+
+<% if @book.user == current_user %>
+
+<div class="nuovocapitolo">
+
+
+<h2 class="aggiungi"> Aggiungi un capitolo </h2>
+
+<%= form_with model: [@book,@book.chapters.build ] do |form| %>
+<p>
+<%= form.label :titolo, id:"label" %> <br>
+<%= form.text_field :titolo, id:"arealabel" %>
+</p>
+<p>
+<%= form.label :testo, id:"testo" %> <br>
+<%= form.text_area :testo, id:"areatesto" %>
+</p>
+<p>
+<%= form.submit :Submit, id: "submit" %>
+</p>
+<% end %>
+</div>
+
+<%end%>
+
+
+
+<% if user_signed_in? %>
+
+
+<!-- QUA AGGIUNGERE CHE NON PIU DI UNA RECENSIONE SE PUO FA PER UTENTE-->
+<div class="nuovarecensione">
+
+<h2 class="aggiungi"> Aggiungi una Recensione </h2>
+
+<%= form_with model: [@book,@book.reviews.build ] do |form| %>
+<p>
+<%= form.label :testo, id:"testo" %> <br>
+<%= form.text_area :testo, id:"areatesto" %>
+</p>
+<p>
+<%= form.label :ranking, id:"label" %> <br>
+<%= form.text_field :ranking, id:"arealabel" %>
+</p>
+<p>
+<%= form.submit :Submit, id:"submit" %>
+</p>
+<% end %>
+</div>
+
+
+
+<%end%>
+
+<div class="container" id="container">
+
+<h2 class="titrecensione">Recensioni</h2>
+
+<div class="swiper swiper-container active">
+
+<div class="swiper-wrapper">
+
+<% @book.reviews.each do |review| %>
+
+
+  <div class="swiper-slide">
+ 
+   
+
+   <%if !review.ranking.blank? %>
+   
+   <div class="h1">
+   <%= review.user.username %>
+   </div>
+   <div class="votorec">
+  <p>
+    <strong>Voto: </strong>
+    <%= review.ranking %>
+  </p>
+  </div>
+
+  <div class="testorec">
+  <p>
+    <strong>Recensione: </strong>
+    <%= review.testo %>
+  </p>
+
+  </div>
+ <% if review.user == current_user %>
+  <%= link_to "Destroy", review_path(review), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+
+  <% end %>
+
+<% if user_signed_in? %>
+
+  <div class="bott">
+ <p>
+ <%= button_to 'Report', review_flags_path(review), method: :post, id: "bott" %> 
+
+ </p>
+ </div>
+
+<%end%>
+
+
+ <div class="segn">
+ <p> 
+  <%= review.flags.count %>
+   <%= (review.flags.count) == 1 ? 'Segnalazioni' : 'Nessuna segnalazione'%>
+</p>
+ </div>
+ 
+    <%end%>
+    </div>
+<% end %>
+
+</div>
+
+    <div class="swiper-pagination"></div>
+</div>
+</div>

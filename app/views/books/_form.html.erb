@@ -1,0 +1,38 @@
+<%= form_with model: @book do |form| %>
+  <div>
+    <%= form.label :titolo %><br>
+    <%= form.text_field :titolo %>
+    
+  </div>
+
+  <div>
+    <%= form.label :trama %><br>
+    <%= form.text_area :trama %><br>
+    
+  </div>
+  
+
+  <div>
+    <%= form.label :tag %><br>
+    <%= form.text_field :tag %><br>
+    
+  </div>
+
+  <div>
+    <%= form.label :genere %><br>
+    <%= form.text_field :genere %><br>
+   
+  </div>
+
+  <div>
+    <%= form.label :Copertina %><br>
+    <%= form.file_field :cover %>
+    
+  </div>
+
+
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

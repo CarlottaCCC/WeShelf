@@ -1,0 +1,14 @@
+<%= stylesheet_link_tag "style2.css" %>
+
+<div class="modal-content2 animate">
+<h1 class="frasesign2"><strong>Cercavi questo?</strong></h1>
+<br>
+<div id="grid-container">
+<% @users.each do |user| %>
+    <div id="modal-content1"> 
+<h2 class="fraseuser"><strong><%= user.username %></strong></h2>
+<%= link_to "Vai al profilo", user, id: "scritta" %>
+</div>
+<% end %>
+</div>
+</div>

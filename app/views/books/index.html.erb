@@ -1,0 +1,122 @@
+<%= stylesheet_link_tag "style.css" %>
+
+<% if user_signed_in? %>
+<%= button_to "Log out", signout_path, method: :delete, id: 'bot' %>
+<center><h1 class="frase">Bentornato!</h1></center>
+<% else %>
+<%= link_to "Sign up", signup_path, id: "sign-up" %>
+<%= link_to "Sign in", signin_path, id: "sign-in" %>
+<center><h1 class="frase">Benvenuto su WeShelf!</h1></center>
+<% end %>
+
+<div class="card" id="card1">
+<div class="card-body">
+
+<h1 class="frase_ricerca"><strong>Search a book from title!</strong></h1>
+
+<%= form_for "", url: books_path, role: "searchtitle", method: :get do  |form| %>
+<%= text_field_tag :searchtitle, @search_term_book, id: "campo", placeholder: "Search" %>
+<%= form.submit "Search", id: 'bottone1' %>
+<%end%>
+
+
+<h1 class="frase_ricerca"><strong>Search a book from genre!</strong></h1>
+
+<%= form_for "", url: books_path, role: "searchgenre", method: :get do  |form| %>
+<%= text_field_tag :searchgenre, @search_term_book, id: "campo", placeholder: "Search" %>
+<%= form.submit "Search", id: 'bottone1' %>
+<%end%>
+
+
+<h1 class="frase_ricerca"><strong>Search a book from tag!</strong></h1>
+
+<%= form_for "", url: books_path, role: "searchtag", method: :get do  |form| %>
+<%= text_field_tag :searchtag, @search_term_book, id: "campo", placeholder: "Search" %>
+<%= form.submit "Search", id: 'bottone1' %>
+<%end%>
+
+<h1 class="frase_ricerca"><strong>Search a user from his username!</strong></h1>
+
+<%= form_for "", url: users_path, role: "search", method: :get do  |form| %>
+<%= text_field_tag :search, @search_term_user, id: "campo", placeholder: "Search" %>
+<%= form.submit "Search", id: 'bottone1' %>
+<%end%>
+ </div>
+ </div>
+
+<h1 class="frase_risultati">Lista dei libri pubblicati:</h1>
+
+<%= link_to "Ordina i libri in base ai like", ordina_path%>
+
+<ul>
+<% @books.each do |book| %>
+
+  <div class="card" id="blocco">
+  <div class="card-body">
+
+<li>
+<div class="card-title">
+<%if book.visibility != 'privato' %>
+<!-- <td><%= book.user.try(:username) %></td> -->
+<td><%= book.titolo %></td>
+<td><%= link_to "Leggi", book, id: "leggi" %></td>
+
+</div>
+
+<% if user_signed_in? %>
+
+<% if current_user.following?(book) %>
+<%= link_to "Rimuovi dai preferiti", unfollow_book_path(book), data: { turbo_method: :delete }, id:"pref" %>
+
+<% else %>
+<%= link_to "Aggiungi ai preferiti", follow_book_path(book) , data: { turbo_method: :post }, id:"nopref"  %>
+<% end %>
+
+<% if book.user == current_user %>
+  <td><%= link_to "Edit", edit_book_path(book) %></td>
+  <td><%= link_to "Destroy", book_path(book), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></td>
+<%end%>
+<%end%>
+
+
+<li> 
+<div class="card-text" id="trama">
+<%= book.trama %>
+</div>
+</li>
+
+
+<li> 
+<div class="card-text" id="genere">
+<%= book.genere %>
+</div>
+</li>
+
+
+<div class="card-img" id="img">
+<%= image_tag book.cover.url(:medium), :class => "immagine" %>
+<br>
+</div>
+
+</div>
+</div>
+
+<li>
+<div class="tratti">
+---------------------------------------------
+</div>
+</li>
+<li>
+<div class="tratti">
+---------------------------------------------
+</div>
+</li>
+<% end %>
+
+
+<%end%>
+</ul>
+

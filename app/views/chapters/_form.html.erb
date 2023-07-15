@@ -1,0 +1,23 @@
+<%= stylesheet_link_tag "style.css" %>
+<div class="contenitore2">
+  <%= form_with model: @chapter do |form| %>
+  <div class="sottocontenitore">
+  <div class="partet">
+    <%= form.label :titolo, id:"labelt" %><br>
+    <%= form.text_field :titolo, id:"textt" %>
+    
+  </div>
+
+  <div class="partecommento">
+    <%= form.label :testo, id:"labeledit" %><br>
+    <%= form.text_area :testo, id:"textedit" %><br>
+    
+  </div>
+  
+
+  <div class="sub">
+    <%= form.submit :id => "botto"%>
+  </div>
+  </div>
+<% end %>
+</div>

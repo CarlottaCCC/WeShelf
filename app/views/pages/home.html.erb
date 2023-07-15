@@ -1,0 +1,113 @@
+<%= stylesheet_link_tag "style.css" %>
+
+<%= link_to "About us", about_path%>
+
+<% if user_signed_in? %>
+  <% if current_user.admin == true %>
+    <%= link_to "Admin Area", admin_root_path %>
+
+  <%end%>
+
+<%= button_to "Log out", signout_path, method: :delete, id:"bot"%>
+<center><h1 class="frase">Bentornato!</h1></center>
+<center><%= link_to 'Vai al tuo profilo', user_path(current_user), id: "profilo" %></center>
+<% else %>
+<%= link_to "Sign up", signup_path, id: "sign-up" %>
+<%= link_to "Sign in", signin_path, id: "sign-in"%>
+<%= link_to "Lista dei libri pubblicati", books_path, id: "pubblicati" %>  
+<%= link_to "Lista degli utenti iscritti", users_path, id: "iscritti" %>
+<center><h1 class="frase">Benvenuto su WeShelf!</h1></center>
+<% end %>
+
+<div class="card" id="card1">
+<div class="card-body">
+
+<h1 class="frase_ricerca"><strong>Search a book from title!</strong></h1>
+
+<%= form_for "", url: books_path, role: "searchtitle", method: :get do  |form| %>
+<%= text_field_tag :searchtitle, @search_term_book, id: "campo", placeholder: "Search" %>
+<%= form.submit "Search", id: 'bottone1' %>
+<%end%>
+
+
+<h1 class="frase_ricerca"><strong>Search a book from genre!</strong></h1>
+
+<%= form_for "", url: books_path, role: "searchgenre", method: :get do  |form| %>
+<%= text_field_tag :searchgenre, @search_term_book, id: "campo", placeholder: "Search" %>
+<%= form.submit "Search", id: 'bottone1' %>
+<%end%>
+
+
+<h1 class="frase_ricerca"><strong>Search a book from tag!</strong></h1>
+
+<%= form_for "", url: books_path, role: "searchtag", method: :get do  |form| %>
+<%= text_field_tag :searchtag, @search_term_book, id: "campo", placeholder: "Search" %>
+<%= form.submit "Search", id: 'bottone1' %>
+<%end%>
+
+<h1 class="frase_ricerca"><strong>Search a user from his username!</strong></h1>
+
+<%= form_for "", url: users_path, role: "search", method: :get do  |form| %>
+<%= text_field_tag :search, @search_term_user, id: "campo", placeholder: "Search" %>
+<%= form.submit "Search", id: 'bottone1' %>
+<%end%>
+
+</div>
+</div>
+
+<br>
+<br>
+<br>
+
+
+<h1 class="top" id="top"><strong>Classifica dei TOP 10</strong></h1>
+
+<div class="lista">
+
+<% @books.each do |book|  %>
+
+
+
+    <% num_likes = 0 %>
+    <% book.chapters.each do |chapter| %>
+        <% num_likes += chapter.votes_for.up.size %>
+    <% end %>
+
+    <% book.likes = num_likes %>
+    <% book.save %>
+<% end %>
+
+<% i = 1 %>
+
+<% Book.order(:likes).reverse().each do |book| %>
+<%if book.visibility != 'privato' %>
+
+<div class="riga">
+
+<% if i > 10 %>
+<% break %>
+<% end %>
+<span class="numero">
+<%= i %>
+</span>
+<span class="posizione">
+<td><%= book.titolo %></td>
+</span>
+<span class="like">
+Likes:
+<td><%= book.likes %></td>
+</span>
+<span class="leggi">
+<td><%= link_to "Leggi", book, id:"leggi" %></td>
+<% i = i + 1 %>
+</span>
+
+<br>
+<% end %>
+</div>
+
+<%end%>
+
+</div>
+
+<br>

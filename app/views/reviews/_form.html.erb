@@ -1,0 +1,19 @@
+<%= form_with model: [@book,@book.reviews.build ] do |form| %>
+  <div>
+    <%= form.label :ranking %><br>
+    <%= form.text_field :ranking %>
+    
+  </div>
+
+  <div>
+    <%= form.label :testo %><br>
+    <%= form.text_area :testo %><br>
+    
+  </div>
+
+ 
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

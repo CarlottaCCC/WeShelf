@@ -1,0 +1,46 @@
+<%= stylesheet_link_tag "style2.css" %>
+
+<div class="modal-content animate">
+<h2 class="frasesign">Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+  <% if resource.avatar.attached? %>
+  <%= image_tag(resource.avatar)%>
+  <% else %>
+  <%= image_tag("/default_profile.jpg")%>
+  <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email, id:"labelr" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :username, id:"labelr" %><br />
+    <%= f.text_field :username, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, id:"labelr" %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, id:"labelr" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up", id: "button2" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+</div>

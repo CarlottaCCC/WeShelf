@@ -1,0 +1,761 @@
+.frase{
+    color: orange;
+    font-size: 60px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+#card1{
+    background-color: transparent;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 3%;
+    height: 80%;
+    border-color: transparent;
+}
+
+.frase_ricerca{
+    color:black;
+    margin-left: 5%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#profilo{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.successo{
+    color:black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 23px;
+}
+
+#campo{
+    margin-left: 5%;
+    border: none;
+    border-bottom: 1px solid black;
+    border-radius: 0%;
+    height: 35px;
+    width: 80%;
+    align-items: center;
+    font-size: 20px;
+}
+
+#bottone1{
+    border-radius: 0%;
+    color: white;
+    font-size: 17px;
+    height: 35px;
+    background: orange;
+    border: 0px solid orange;
+    text-align: center;
+    margin-left: 2%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#bottone1:hover{
+    background: rgb(192, 120, 26);
+    border: 0px solid rgb(192, 120, 26);
+}
+
+#bot{
+    color: white;
+    font-size: 15px;
+    height: 35px;
+    background: orange;
+    border: 0px solid orange;
+    text-align: center;
+    margin-left: 2%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#bot:hover{
+    background: rgb(192, 120, 26);
+    border: 0px solid rgb(192, 120, 26);
+}
+
+#pref{
+    font-size: 17px;
+}
+
+#nopref{
+    font-size: 17px;
+}
+
+#profilo{
+    font-size: 23px;
+}
+
+#sign-in{
+    font-size: 22px;
+    text-decoration: none;
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#sign-in:hover{
+    color: orange;
+    text-decoration: underline;
+}
+
+#sign-up{
+    font-size: 22px;
+    margin-left: 2%;
+    text-decoration: none;
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#sign-up:hover{
+    color: orange;
+    text-decoration: underline;
+}
+
+#tratto{
+    font-size: 20px;
+}
+
+.frase_risultati{
+    margin-top: 120px;
+    margin-left: 2%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: black;
+    font-size: 35px;
+}
+
+
+li{
+    margin-left: 10px;
+    list-style-type: none;
+}
+
+
+#blocco{
+    
+    margin-left: 32%;
+    margin-right: 32%;
+    border-radius: 0%;
+    box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.card-title{
+    font-size: 33px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: black;
+    text-align: center;
+    text-decoration: solid;
+    border-bottom: 5px solid orange;
+    font-weight: bold;
+    margin-right: 2%;
+}
+
+#leggi{
+    font-size: 33px;
+    color: black;
+}
+
+
+#trama{
+    font-size: 25px;
+    text-align: justify;
+    margin-right: 2%;
+}
+
+#genere{
+    font-size: 25px;
+    font-family: cursive;
+    font-weight: bold;
+    margin-top: 2%;
+}
+
+#img{
+    margin-bottom: 0%;
+}
+
+.immagine{
+    border-radius: 0%;
+    margin-bottom: 1%;
+    margin-top: 3%;
+    border: 6px solid orange;
+    width: auto;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 2px 0 30px rgba(78, 52, 4, 0.1);
+}
+
+.tratti{
+    color: transparent;
+}
+
+#pubblicati{
+    font-size: 24px;
+    margin-left: 57%;
+    color: black;
+    margin-top: 3%;
+    text-decoration: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#pubblicati:hover{
+    text-decoration: underline;
+    font-size: 26px;
+}
+
+#iscritti{
+    font-size: 24px;
+    margin-left: 2%;
+    color: black;
+    text-decoration: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#iscritti:hover{
+    text-decoration: underline;
+    font-size: 26px;
+}
+
+.top{
+    margin-top: 3%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 53px;
+    color: orange;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-shadow: 2px 2px 2px #7c7c77;
+}
+
+
+.numero{
+    font-size: 40px;
+    margin-left: 4%;
+    font-weight: bold;
+    font-family: fantasy;
+}
+/*
+
+#numero{
+    color: red;
+}*/
+
+
+.lista{
+    position: relative;
+    width: 1050px;
+    margin: 50px auto 0;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.riga{
+    background-color: rgb(255, 136, 0, .1);
+    display: flex;
+    padding: 10px 20px;
+    margin: 25px 0;
+    transition: .5s;
+}
+
+.posizione{
+    font-size: 30px;
+    align-self: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.like{
+    font-size: 24px;
+    font-family:'Courier New', Courier, monospace;
+}
+
+.leggi{
+    font-size: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:#000000;
+}
+
+
+.riga:hover{
+    transform: scale(1.06);
+    background: orange;
+}
+
+.riga span:nth-child(1){
+    width: 50px;
+    text-align: left;
+}
+
+.riga span:nth-child(2){
+    width: 650px;
+}
+
+.riga span:nth-child(3){
+    width: 150px;
+    text-align: center;
+}
+
+.riga span:nth-child(4){
+    width: 100px;
+    text-align: right;
+}
+
+#leggi{
+    color: #000000;
+}
+
+#leggi:hover{
+    color: #000000;
+    text-decoration: underline;
+}
+
+/*---------------------------------------------
+show.html.erb in book
+-----------------------------------------------*/
+
+
+.classtitolo{
+    text-align: center;
+}
+
+.titololibro{
+    align-self: center;
+    font-size: 50px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    color: black;
+    text-shadow: 2px 2px 2px #000000;
+}
+
+.classimmagine{
+    min-height: 350px;
+}
+
+.imglibro{
+    border-radius: 0%;
+    align-self: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    width: auto;
+    border: 10px solid orange;
+}
+
+.statolibro{
+    font-size: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-left: 1%;
+}
+
+.visibilita{
+    font-size: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-left: 1%;
+}
+
+.tramalibro{
+    font-size: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-left: 1%;
+}
+
+.capitolilibro{
+    font-size: 30px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    color: black;
+    margin-left: 1%;
+    /*
+    text-shadow: 2px 2px 2px #000000;*/
+}
+
+.paragrafocapitolo{
+    margin-left: 3%;
+}
+
+.titolocapitolo{
+    font-size: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#chapter{
+    font-size: 20px;
+    color: orange;
+}
+
+.likecapitolo{
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.voti{
+    font-size: 20px;
+    margin-left: 3%;
+}
+
+#edit{
+    margin-left: 3%;
+    font-size: 20px;
+    color: orange;
+}
+
+.nuovocapitolo{
+    margin-left: 3%;
+    margin-right: 10%;
+    margin-top: 3%;
+}
+
+.aggiungi{
+    font-size: 25px;
+    color: #000000;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+#label{
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#testo{
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#arealabel{
+    width: 18%;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background: #eee;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 0 0 0.5px #0003;
+}
+
+#areatesto{
+    width: 40%;
+    background: #eee;
+    border: none;
+    height: 152px;
+    border-radius: 4px;
+    box-shadow: 0 0 0 0.5px #0003;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 22px;
+}
+
+#submit{
+    border-radius: 0%;
+    background: orange;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin-top: 1%;
+    border: 0px solid rgb(192, 120, 26);
+    cursor: pointer;
+}
+
+.nuovarecensione{
+    margin-left: 3%;
+    margin-right: 10%;
+    margin-top: 3%;
+}
+
+
+.container{
+    margin-top: 3%;
+    border-top:3px solid orange;
+    border-bottom: 3px solid orange;
+    margin-bottom: 1%;
+}
+
+
+.container .titrecensione{
+    font-size: 40px;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+    margin-top: 1%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-decoration: underline;
+}
+
+.swiper-container{
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 3%;
+}
+
+
+.swiper-wrapper{
+    background: blanchedalmond;
+    margin-bottom: 10%;
+
+}
+
+.swiper-slide{
+    background: transparent;
+    padding-bottom: 10px;
+    background-color: transparent;
+}
+
+.swiper-pagination{
+    align-items: center;
+}
+
+
+.swiper-pagination .swiper-pagination-bullet{
+    width: 12px;
+    height: 12px;
+    background-color: orange;
+    opacity: 1;
+    border: 1px solid white;
+}
+
+.swiper-pagination .swiper-pagination-bullet-active{
+    background-color: rgb(116, 67, 8);
+}
+
+.votorec{
+    font-size: 23px;
+    margin-left: 2%;
+    margin-top: 2%;
+}
+
+.testorec{
+    font-size: 23px;
+    margin-left: 2%;
+}
+
+.segn{
+    font-size: 21px;
+    margin-left: 2%;
+}
+
+.bott{
+    margin-left: 2%;
+}
+
+#bott{
+    border-radius: 0;
+    font-size: 15px;
+    background: orange;
+}
+
+.titolocap{
+    font-size: 40px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: black;
+}
+
+#pag{
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-image: linear-gradient(to right,rgb(236, 200, 132), white, rgb(236, 200, 132));
+}
+
+.pag #p{
+    font-size: 23px;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-family: cursive;
+    text-align: justify;
+}
+
+.likecap{
+    font-size: 23px;
+    margin-left: 2%;
+    margin-top: 3%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display: flex;
+    flex-direction: row;
+}
+
+.votes{
+    margin-left: 1%;
+}
+
+#tr{
+    font-size: 0px;
+}
+
+
+.comment{
+    margin-left: 3%;
+    border-left: 4px solid rgb(236, 200, 132);
+}
+
+.comments .comment-title{
+    text-transform: uppercase;
+    color: #000000;
+    letter-spacing: 0.1rem;
+    font-size: 27px;
+    font-weight: 600;
+    margin-left: 2%;
+    margin-top: 3%;
+    text-decoration: underline;
+}
+
+.comment-meta{
+    font-size: 24px;
+    color: #000000;
+    margin-left: 1%;
+}
+
+.comment-body{
+    font-size: 23px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #000000;
+    margin-left: 1%;
+}
+
+#flex{
+    margin-bottom: 2%;
+    margin-left: 2%;
+}
+
+.destroy{
+    margin-left: 1%;
+    font-size: 18px;
+}
+
+.box-commenti{
+    margin-top: 3%;
+    margin-left: 3%;
+    width: 800px;
+}
+
+.box-commenti .commenta{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #000000;
+    font-size: 28px; 
+}
+
+.box-commenti #labelform{
+    font-size: 18px;
+    color: #000000;
+}
+
+.box-commenti #textareaform{
+    background: #eee;
+    width: 800px;
+    border: none;
+    height: 152px;
+    border-radius: 4px;
+    box-shadow: 0 0 0 0.5px #0003;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 22px;
+}
+
+.box-commenti #textareaform:focus{
+    outline-color: #000000;
+}
+
+#botto{
+    float: right;
+    padding: 6px 14px;
+    border: none;
+    cursor: pointer;
+    background: orange;
+    color: white;
+    border-radius: 2px;
+    font-size: 21px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    height: 35px;
+    text-align: center;
+}
+
+#botto:hover{
+    background: rgb(133, 90, 11);
+}
+
+.contenitore{
+    width:800px;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.sottocontenitore{
+    width: 700px;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.partecommento{
+    text-align: center;
+    
+}
+
+#labeledit{
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #000000;
+    text-decoration: underline;
+    font-size: 25px;
+    margin-top: 4%;
+    margin-bottom: 2%;
+
+}
+
+#textedit{
+    
+    background: #eee;
+    width: 600px;
+    border: none;
+    height: 200px;
+    border-radius: 4px;
+    box-shadow: 0 0 0 0.5px #0003;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 22px;
+}
+
+.sub{
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+}
+
+.contenitore2{
+    width:800px;
+    height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.partet{
+    text-align: center;
+}
+
+#labelt{
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #000000;
+    text-decoration: underline;
+    font-size: 25px;
+    margin-top: 4%;
+    margin-bottom: 2%;
+}
+
+#textt{
+    background: #eee;
+    width: 600px;
+    border: none;
+    height: 40px;
+    border-radius: 4px;
+    box-shadow: 0 0 0 0.5px #0003;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 22px;
+
+}

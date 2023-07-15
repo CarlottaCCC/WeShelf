@@ -1,0 +1,80 @@
+<%= stylesheet_link_tag "style.css" %>
+<h1>Lista dei libri ordinati</h1>
+
+<% @books.each do |book| %>
+
+  <div class="card" id="blocco">
+  <div class="card-body">
+
+<li>
+<div class="card-title">
+<%if book.visibility != 'privato' %>
+<!-- <td><%= book.user.try(:username) %></td> -->
+<td><%= book.titolo %></td>
+<td><%= link_to "Leggi", book, id: "leggi" %></td>
+
+</div>
+
+<% if user_signed_in? %>
+
+<% if current_user.following?(book) %>
+<%= link_to "Rimuovi dai preferiti", unfollow_book_path(book), data: { turbo_method: :delete }, id:"pref" %>
+
+<% else %>
+<%= link_to "Aggiungi ai preferiti", follow_book_path(book) , data: { turbo_method: :post }, id:"nopref"  %>
+<% end %>
+
+<% if book.user == current_user %>
+  <td><%= link_to "Edit", edit_book_path(book) %></td>
+  <td><%= link_to "Destroy", book_path(book), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></td>
+<%end%>
+<%end%>
+
+
+<li> 
+<div class="card-text" id="trama">
+<%= book.trama %>
+</div>
+</li>
+
+
+<li> 
+<div class="card-text" id="genere">
+<%= book.genere %>
+</div>
+</li>
+
+<li> 
+<div class="card-text" id="likes">
+Likes: <%= book.likes %>
+</div>
+</li>
+
+
+<div class="card-img" id="img">
+<%= image_tag book.cover.url(:medium), :class => "immagine" %>
+<br>
+</div>
+
+</div>
+</div>
+
+<li>
+<div class="tratti">
+---------------------------------------------
+</div>
+</li>
+<li>
+<div class="tratti">
+---------------------------------------------
+</div>
+</li>
+<% end %>
+
+
+<%end%>
+</ul>
+

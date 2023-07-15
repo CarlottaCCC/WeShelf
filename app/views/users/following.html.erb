@@ -1,0 +1,7 @@
+<h1><strong>Following:</strong></h1>
+<br>
+<% @users.each do |user| %>
+<h2><strong><%= user.username %></strong></h2>
+<%= link_to "Vai al profilo", user %>
+<br>
+<% end %>

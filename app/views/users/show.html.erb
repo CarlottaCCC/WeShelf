@@ -1,0 +1,139 @@
+<%= stylesheet_link_tag "style2.css" %>
+
+
+
+<div class="container">
+<h1 class="frasesign2"><%= @user.username %> </h1>
+<div class="persona2">
+  <div class="div-imm-bott">
+  <div class="immagine2">
+    <%= image_tag(@user.avatar_thumbnail) %> </h1> 
+  </div>
+  <br>
+  <%if @user == current_user %>
+    <%= link_to "Edit Profile", edit_user_registration_path %>
+  <% end %>
+  
+  <br>
+  
+
+
+  <% if current_user %>
+  <% if @user != current_user %>
+
+    
+    <% if current_user.following?(@user) %>
+      <%= button_to "Unfollow", unfollow_user_path(@user), method: :delete , id:"button2"%>
+
+    <% else %>
+      <%= button_to "Follow", follow_user_path(@user) , method: :post , id:"button2" %>
+    <% end %>
+    
+  <% end %>
+  </div>
+  
+  <div class="foll">
+  
+    <div class="fraseuser2">
+      <h2 id="foll">Followers: <%= @user.followers_count %></h2>
+      <br>
+      
+      <div class="swiper swiper-container10 active">
+
+      <div class="swiper-wrapper">
+
+
+      <% @user.followers.each do |user| %>
+        <div class="swiper-slide">
+       <%= user.username %>
+        </div>
+      <%end%>
+      
+      </div>
+      <div class="swiper-pagination"></div>
+      </div>
+      
+      
+      <br>
+      
+      <h2 id="foll">Following: <%= @user.following_by_type('User').size %></h2>
+      <br>
+
+      <div class="swiper swiper-container10 active">
+
+      <div class="swiper-wrapper">
+
+      <% @user.following_by_type('User').each do |user| %>
+        <div class="swiper-slide">
+        <%= user.username %>
+        </div>
+      <%end%>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+
+<% end %>
+</div>
+</div>
+
+
+<br>
+
+
+<div class="fraseuser3">
+<u><h2>Favorite books:</h2></u>
+</div>
+<br>
+<% @user.following_by_type('Book').each do |book| %>
+  <div class="card2" id="blocco2">
+  <div class="card-body">
+  <div class="card-title2">
+    <%= book.titolo %>
+  </div>
+  </div>
+  </div>
+  
+<%end%>
+<hr>
+
+<% Book.all.each do |book| %>
+  
+<% if book.user == @user %>
+  <div class="card2" id="blocco2">
+  <div class="card-body">
+  <div class="card-title4">
+<td><%= book.titolo %></td>
+<td><%= link_to "Leggi", book , id:"link_leggi"%></td>
+
+<% if book.user == current_user %>
+  <td><%= link_to "Edit", edit_book_path(book) %></td>
+  <td><%= button_to "Destroy", book, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+<%end%>
+
+<li> 
+<div class="card-text", id="trama2">
+<%= book.trama%>
+</div>
+</li>
+
+<li> 
+<div class="card-text", id="genere2">
+<%= book.genere %>
+</div>
+</li>
+
+</li>
+<br>
+</div>
+  </div>
+  </div>
+<% end %>
+
+<% end %>
+
+<% if @user == current_user %>
+<%= link_to 'Nuovo Libro', new_book_path %>
+<%end%>
+
+<p>Find me in app/views/users/show.html.erb</p>

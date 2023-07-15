@@ -1,0 +1,308 @@
+.frasesign{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 100px;
+  font-weight: bolder;
+  color: black;
+  text-align: center;
+}
+#labelr{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 20px;
+  font-weight: bolder;
+  color: black;
+  text-align: left;
+}
+
+
+.frasesign2{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 50px;
+  font-weight: bolder;
+  color: black;
+  text-align: center;
+}
+
+.fraseuser{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 20px;
+  font-weight: bolder;
+  color: black;
+  text-align: center;
+  margin-top: 10%;
+}
+
+.field{        
+  text-align: center;
+}
+.actions{
+  text-align: center;
+}
+
+
+input[type=text], input[type=email], input[type=password]{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  width: 100% ;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}      
+input{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: black;
+  padding: 14px 20px;
+  margin:8px 0;
+  border: none;
+  cursor: pointer;        
+}
+
+.modal-content{
+  text-align: center;
+  background-color: #fefefe;
+  margin: 1% auto 5% auto;
+  border: none;
+  width: 30% ;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.modal-content2{
+  background-color: #fefefe;
+  margin: 1% auto 5% auto;
+  border: none;
+  width: 80%;
+  text-align: left;
+}
+
+.animate{
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s;
+}
+
+#button2{ 
+  border-radius: 0;
+  color: white;
+  font-size: 17px;
+  height: 35px;
+  background: orange;
+  border: 0px solid orange;
+  text-align: center;
+  margin-left: 1% ;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#button2:hover{
+  background: rgb(192, 120, 26);
+  border: 0px solid rgb(192, 120, 26);
+}
+
+#modal-content1{
+    text-align: center;
+    height: 100px;
+    width: 250px;
+    margin-left: 32%;
+    margin-right: 32%;
+    border-radius: 0%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-color: transparent;
+    background-color: rgba(255, 136, 0, 0.3);
+}
+
+#modal-content1:hover{
+    background: orange;
+}
+
+#scritta{
+    color: black;
+}
+
+#grid-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 40px;
+}
+
+.card-title2{
+  font-size: 33px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: black;
+  text-align: center;
+  text-decoration: solid;
+  border-bottom: 5px solid orange;
+  font-weight: bold;
+  margin-right: 2%;
+}
+
+#blocco2{
+height: auto;
+width: auto;
+margin-left: 10%;
+margin-right: 10%;
+border-radius: 0%;
+box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+border-color: transparent;
+background-color: transparent;
+}
+#card2{
+background-color: transparent;
+margin-left: 20%;
+margin-right: 20%;
+margin-top: 3%;
+height: 80%;
+width: 80%;
+border-color: transparent;
+}
+#link_leggi{
+font-size: 33px;
+color: black;
+}
+
+.foll{
+text-align: right;
+}
+
+
+#grid-container2{
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-gap: 5px;
+margin-top: 0%;
+grid-row: 1;
+align-self: center;
+}
+
+#trama2{
+font-size: 20px;
+text-align: justify;
+margin-right: 2%;
+margin-top: 5%;
+}
+
+#genere2{
+font-size: 25px;
+font-family: cursive;
+font-weight: bold;
+margin-top: 2%;
+}
+
+.immagine2{
+align-self: left;
+border-radius: 0%;
+margin-bottom: 1%;
+margin-top: 3%;
+border: 6px solid orange;
+width: auto;
+height: 162px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+box-shadow: 2px 0 30px rgba(78, 52, 4, 0.1);
+
+}
+
+.fraseuser2{
+font-family: Georgia, 'Times New Roman', Times, serif;
+font-size: 15px;
+font-weight: bolder;
+color: black;
+text-align: center;
+margin-top: 0%;
+}
+
+.fraseuser3{
+font-family: Georgia, 'Times New Roman', Times, serif;
+font-size: 20px;
+font-weight: bolder;
+color: black;
+margin-top: 5px;
+margin-left: 15%;
+}
+
+#button3{ 
+
+border-radius: 0;
+color: white;
+font-size: 17px;
+height: 35px;
+background: orange;
+border: 0px solid orange;
+font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#button3:hover{
+background: rgb(192, 120, 26);
+border: 0px solid rgb(192, 120, 26);
+}
+
+.persona2{
+    position: relative;
+    width: 1050px;
+    margin: 50px auto 0;
+    padding: 10px;
+}
+
+.div-imm-bott{
+display: flex;
+flex-direction:column;
+flex-wrap: wrap;
+align-items: center;
+margin-right: 25%;
+margin-left: 25%;
+margin-bottom: 5%;
+}
+
+.swiper-container10{
+  width: 300px;
+  height: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 3%;
+  font-size: 23px;
+}
+
+
+.swiper-wrapper{
+  background: blanchedalmond;
+  margin-bottom: 10%;
+
+}
+
+.swiper-slide{
+  background: transparent;
+  padding-bottom: 10px;
+  background-color: transparent;
+  margin-top: 5%;
+}
+
+.swiper-pagination{
+  align-items: center;
+}
+
+#foll{
+  font-size: 27px;
+}
+
+
+.swiper-pagination .swiper-pagination-bullet{
+  width: 12px;
+  height: 12px;
+  background-color: orange;
+  opacity: 1;
+  border: 1px solid white;
+}
+
+.swiper-pagination .swiper-pagination-bullet-active{
+  background-color: rgb(116, 67, 8);
+}
+
+.card-title4{
+  font-size: 33px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: black;
+  text-align: center;
+  text-decoration: solid;
+  border-bottom: 5px solid orange;
+  font-weight: bold;
+  margin-right: 2%;
+  margin-top: 4%;
+}
+

@@ -15,6 +15,41 @@
     border-color: transparent;
 }
 
+.card{
+    width: auto;
+    margin-left: 2%;
+    margin-right: 60%;
+    border: none;
+}
+
+.card-body{
+    border: none;
+}
+
+.card10{
+    width: auto;
+    height: auto;
+    margin-left: 3%;
+    margin-right: 3%;
+    background:  rgb(255, 207, 119);;
+}
+
+.comment-user{
+    margin-left: 2%;
+    margin-top: 2%;
+    font-size: 26px;
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bolder;
+}
+
+.comment-body2{
+    font-size: 23px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #000000;
+    margin-left: 2%;
+}
+
 .frase_ricerca{
     color:black;
     margin-left: 5%;
@@ -132,9 +167,9 @@ li{
 
 
 #blocco{
-    
-    margin-left: 32%;
-    margin-right: 32%;
+    width: auto;
+    margin-left: 20%;
+    margin-right: 20%;
     border-radius: 0%;
     box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-color: transparent;
@@ -482,9 +517,9 @@ show.html.erb in book
 }
 
 .swiper-container{
-    width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    width: auto;
+    margin-left: 25%;
+    margin-right: 25%;
     box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 3%;
 }
@@ -517,6 +552,14 @@ show.html.erb in book
 
 .swiper-pagination .swiper-pagination-bullet-active{
     background-color: rgb(116, 67, 8);
+}
+
+.h1{
+    font-size: 35px;
+    color: #000000;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bolder;
 }
 
 .votorec{
@@ -552,9 +595,9 @@ show.html.erb in book
 }
 
 #pag{
-    width: 30%;
-    margin-left: auto;
-    margin-right: auto;
+    width: auto;
+    margin-left: 20%;
+    margin-right: 20%;
     box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-image: linear-gradient(to right,rgb(236, 200, 132), white, rgb(236, 200, 132));
 }

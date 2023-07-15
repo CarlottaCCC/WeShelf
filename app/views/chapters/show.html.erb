@@ -23,15 +23,19 @@ Likes:
 
 <div class="comments">
 <h2 class="comment-title">Commenti</h2>
-<div class="comment">
+<!--<div class="comment">-->
+<div class="card " style="background-color: transparent"> 
 <% @chapter.comments.each do |comment| %>
-  <div class="flex-grow-1 ms-2 ms-sm-3" id="flex">
+
+  <!--<div class="flex-grow-1 ms-2 ms-sm-3" id="flex">-->
+  <div class="card-body " style="border: none"> 
+
+  <div class="card10 ">
   <p>
-    <div class="comment-meta d-flex align-items-baseline"> <strong>---------------------</strong> </div>
     <!-- Devi inserire user a commento 
     per poter visualizzare l utente che ha commentato-->
     <div class="comment-user"><%= comment.user.username %>:</div>
-    <div class="comment-body"><%= comment.testo %></div>
+    <div class="comment-body2"><%= comment.testo %></div>
   </p>
 
   <% if comment.user == current_user %>
@@ -45,15 +49,17 @@ Likes:
                   } %>
 
   <%= link_to "Edit", edit_comment_path(comment) %>
-  
-  
   </div>
 
   <%end%>
-
+ </div>
   </div>
+  
 <% end %>
+
 </div>
+
+<!--</div>-->
 </div>
 
 

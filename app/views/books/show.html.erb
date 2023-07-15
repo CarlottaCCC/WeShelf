@@ -88,7 +88,7 @@
 <% if user_signed_in? %>
 
 
-<!-- QUA AGGIUNGERE CHE NON PIU DI UNA RECENSIONE SE PUO FA PER UTENTE-->
+<%if Review.where(user_id:current_user.id,book_id:@book.id).empty?%>
 <div class="nuovarecensione">
 
 <h2 class="aggiungi"> Aggiungi una Recensione </h2>
@@ -109,7 +109,7 @@
 </div>
 
 
-
+<%end%>
 <%end%>
 
 <div class="container" id="container">

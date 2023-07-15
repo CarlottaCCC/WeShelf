@@ -1,84 +1,62 @@
 <%= stylesheet_link_tag "style2.css" %>
 
+<section class="vh-100" style="background-color: white;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-12 col-xl-4">
+
+        <div class="card20" style="border-radius: 15px;">
+          <div class="card-body text-center">
+            <div class="mt-3 mb-4">
+              <%= image_tag(@user.avatar_thumbnail)%>
+                
+            </div>
+            <h4 class="mb-2"><%= @user.username %></h4>
+
+            <%if @user == current_user %>
+             <%= link_to "Edit Profile", edit_user_registration_path %>
+          <% end %>
 
 
-<div class="container">
-<h1 class="frasesign2"><%= @user.username %> </h1>
-<div class="persona2">
-  <div class="div-imm-bott">
-  <div class="immagine2">
-    <%= image_tag(@user.avatar_thumbnail) %> </h1> 
-  </div>
-  <br>
-  <%if @user == current_user %>
-    <%= link_to "Edit Profile", edit_user_registration_path %>
-  <% end %>
-  
-  <br>
-  
-
-
-  <% if current_user %>
-  <% if @user != current_user %>
+            <% if @user != current_user %>
 
     
-    <% if current_user.following?(@user) %>
-      <%= button_to "Unfollow", unfollow_user_path(@user), method: :delete , id:"button2"%>
+             <% if current_user.following?(@user) %>
+             <%= button_to "Unfollow", unfollow_user_path(@user), method: :delete , id:"button2"%>
 
-    <% else %>
-      <%= button_to "Follow", follow_user_path(@user) , method: :post , id:"button2" %>
-    <% end %>
+             <% else %>
+             <%= button_to "Follow", follow_user_path(@user) , method: :post , id:"button2" %>
+             <% end %>
     
-  <% end %>
-  </div>
-  
-  <div class="foll">
-  
-    <div class="fraseuser2">
-      <h2 id="foll">Followers: <%= @user.followers_count %></h2>
-      <br>
+          <% end %>
+
+
+            <div class="d-flex justify-content-between text-center mt-5 mb-2">
+              <div>
+                <p class="mb-2 h5"><%= @user.followers_count %></p>
+                <p class="text-muted mb-0">Followers</p>
+              </div>
+              <div class="px-3">
+                <p class="mb-2 h5"><%= @user.following_by_type('User').size %></p>
+                <p class="text-muted mb-0">Following</p>
+              </div>
+            </div>
+
       
-      <div class="swiper swiper-container10 active">
 
-      <div class="swiper-wrapper">
-
-
-      <% @user.followers.each do |user| %>
-        <div class="swiper-slide">
-       <%= user.username %>
+              </div>
+            </div>
+          </div>
         </div>
-      <%end%>
-      
+
       </div>
-      <div class="swiper-pagination"></div>
-      </div>
+</section>
+
+  
+
+
       
-      
-      <br>
-      
-      <h2 id="foll">Following: <%= @user.following_by_type('User').size %></h2>
-      <br>
-
-      <div class="swiper swiper-container10 active">
-
-      <div class="swiper-wrapper">
-
-      <% @user.following_by_type('User').each do |user| %>
-        <div class="swiper-slide">
-        <%= user.username %>
-        </div>
-      <%end%>
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </div>
-
-<% end %>
-</div>
-</div>
-
-
-<br>
+   
 
 
 <div class="fraseuser3">
@@ -108,7 +86,7 @@
 
 <% if book.user == current_user %>
   <td><%= link_to "Edit", edit_book_path(book) %></td>
-  <td><%= button_to "Destroy", book, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+  <td><%= link_to "Destroy", book, method: :delete, data: {confirm: 'Are you sure?'} %></td>
 <%end%>
 
 <li> 

@@ -12,10 +12,6 @@
 <center><h1 class="frase">Bentornato!</h1></center>
 <center><%= link_to 'Vai al tuo profilo', user_path(current_user), id: "profilo" %></center>
 <% else %>
-<%= link_to "Sign up", signup_path, id: "sign-up" %>
-<%= link_to "Sign in", signin_path, id: "sign-in"%>
-<%= link_to "Lista dei libri pubblicati", books_path, id: "pubblicati" %>  
-<%= link_to "Lista degli utenti iscritti", users_path, id: "iscritti" %>
 <center><h1 class="frase">Benvenuto su WeShelf!</h1></center>
 <% end %>
 

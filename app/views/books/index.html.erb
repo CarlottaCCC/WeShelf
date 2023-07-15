@@ -1,13 +1,5 @@
 <%= stylesheet_link_tag "style.css" %>
 
-<% if user_signed_in? %>
-<%= button_to "Log out", signout_path, method: :delete, id: 'bot' %>
-<center><h1 class="frase">Bentornato!</h1></center>
-<% else %>
-<%= link_to "Sign up", signup_path, id: "sign-up" %>
-<%= link_to "Sign in", signin_path, id: "sign-in" %>
-<center><h1 class="frase">Benvenuto su WeShelf!</h1></center>
-<% end %>
 
 <div class="card" id="card1">
 <div class="card-body">

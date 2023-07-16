@@ -22,8 +22,9 @@ class CommentsController < ApplicationController
 
       def destroy 
         @comment = Comment.find(params[:id])
+        @chapter = @comment.chapter
         @comment.destroy
-        redirect_to root_path, notice: 'Book was successfully deleted'
+        redirect_to chapter_path(@chapter), notice: 'Book was successfully deleted'
       end
     
       private

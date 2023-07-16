@@ -42,10 +42,8 @@
         <%= link_to "Home", root_path, class: "nav-link"%><span class="sr-only">(current)</span>
       </li>
       <% if user_signed_in? %>
-
-      <%= link_to "Logout", signout_path, class: "nav-link", data: {
-                    turbo_method: :delete
-                  } %><span class="sr-only">(current)</span>
+      <%= button_to "Log out", signout_path, method: :delete,class: "nav-link", id:"bot"%>
+      <<span class="sr-only">(current)</span>
 
         <li class="nav-item">
 

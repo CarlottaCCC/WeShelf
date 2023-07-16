@@ -13,7 +13,19 @@ class ReviewsController < ApplicationController
       @review = Review.find(params[:id])
     end
   
-  
+    def edit 
+
+      @review = Review.find(params[:id])
+    end
+    def update
+         @review = Review.find(params[:id])
+         @book = @review.book
+         if @review.update(review_params)
+           redirect_to @book, notice: 'Review was successfully updated'
+         else
+           render :edit
+           end
+         end
 
   
       def destroy 

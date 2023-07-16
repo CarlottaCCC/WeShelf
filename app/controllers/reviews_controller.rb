@@ -17,10 +17,11 @@ class ReviewsController < ApplicationController
 
   
       def destroy 
-        @book = Book.find(params[:id])
         @review = Review.find(params[:id])
+        @book = Book.where(review: @review)
         @review.destroy
-        redirect_to book_path(@book) , notice: 'Review was successfully deleted'
+       
+        redirect_to root_path , notice: 'Review was successfully deleted'
       end
   
 

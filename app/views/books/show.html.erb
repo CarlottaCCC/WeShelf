@@ -43,10 +43,7 @@
      <br>
 
      <% if @book.user == current_user %>
-     <%= link_to "Destroy", chapter_path(chapter), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %>
+     <%= button_to "Cancella", chapter, method: :delete %>
      
       
      <div class="edit">
@@ -147,10 +144,7 @@
 
   </div>
  <% if review.user == current_user %>
-  <%= link_to "Destroy", review_path(review), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %>
+  <%= button_to "Cancella", review, method: :delete %>
 
   <% end %>
 

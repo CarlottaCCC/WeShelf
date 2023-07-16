@@ -64,13 +64,7 @@
 <%= link_to "Aggiungi ai preferiti", follow_book_path(book) , data: { turbo_method: :post }, id:"nopref"  %>
 <% end %>
 
-<% if book.user == current_user %>
-  <td><%= link_to "Edit", edit_book_path(book) %></td>
-  <td><%= link_to "Destroy", book_path(book), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %></td>
-<%end%>
+
 <%end%>
 
 

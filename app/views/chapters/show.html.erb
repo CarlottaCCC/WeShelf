@@ -43,10 +43,7 @@ Likes:
   <div class="destroy">
   
 
-   <%= link_to "Destroy", comment_path(comment), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %>
+   <%= button_to "Destroy", comment, method: :delete %>
 
   <%= link_to "Edit", edit_comment_path(comment) %>
   </div>

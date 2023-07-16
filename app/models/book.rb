@@ -4,7 +4,11 @@ class Book < ApplicationRecord
     has_many :reviews, dependent: :destroy
     has_attached_file :cover, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
     validates_attachment_content_type :cover, content_type: /\Aimage\/.*\z/
-
+    validates :trama, presence: true, length: { minimum: 10 }
+    validates :titolo, presence: true
+    validates :tag, presence: true
+    validates :genere, presence: true
+    validates :cover, presence: true
     acts_as_followable
     acts_as_votable
 

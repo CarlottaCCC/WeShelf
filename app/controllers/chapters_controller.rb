@@ -38,8 +38,9 @@ class ChaptersController < ApplicationController
 
     def destroy 
       @chapter = Chapter.find(params[:id])
+      @book = @chapter.book
       @chapter.destroy
-      redirect_to root_path, notice: 'Book was successfully deleted'
+      redirect_to book_path(@book), notice: 'Book was successfully deleted'
     end
 
   private

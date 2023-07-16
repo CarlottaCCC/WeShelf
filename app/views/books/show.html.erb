@@ -145,7 +145,7 @@
   </div>
  <% if review.user == current_user %>
   <%= button_to "Cancella", review, method: :delete %>
-
+  <%= link_to "Modifica recensione", edit_review_path(review), id: "edit" %>
   <% end %>
 
 <% if user_signed_in? %>

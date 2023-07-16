@@ -1,19 +1,25 @@
-<%= form_with model: [@book,@book.reviews.build ] do |form| %>
-  <div>
-    <%= form.label :ranking %><br>
-    <%= form.text_field :ranking %>
+<%= stylesheet_link_tag "style.css" %>
+<div class="contenitore2">
+<%= form_with model: @review do |form| %>
+  <div class="sottocontenitore">
+  <div class="partet">
+    <%= form.label :ranking, id:"labelt" %><br>
+    <%= form.text_field :ranking, id:"textt" %>
     
   </div>
 
-  <div>
-    <%= form.label :testo %><br>
-    <%= form.text_area :testo %><br>
+  <div class="partecommento">
+    <%= form.label :testo, id:"labeledit" %><br>
+    <%= form.text_area :testo, id:"textedit" %><br>
     
   </div>
+  
 
- 
-
-  <div>
-    <%= form.submit %>
+  <div class="sub">
+    <%= form.submit :id => "botto"%>
+  </div>
   </div>
 <% end %>
+</div>
+
+  

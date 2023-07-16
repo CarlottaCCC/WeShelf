@@ -1,61 +1,118 @@
 <%= stylesheet_link_tag "style2.css" %>
 
-<section class="vh-100" style="background-color: white;">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-md-12 col-xl-4">
 
-        <div class="card20" style="border-radius: 15px;">
-          <div class="card-body text-center">
-            <div class="mt-3 mb-4">
-              <%= image_tag(@user.avatar_thumbnail)%>
-                
-            </div>
-            <h4 class="mb-2"><%= @user.username %></h4>
+<div class="row py-5 px-4"> <div class="col-md-5 mx-auto"> 
+<!-- Profile widget --> 
+<div class="bg-white shadow rounded overflow-hidden"> 
+<div class="px-4 pt-0 pb-4 cover"> 
+<div class="media align-items-end profile-head"> 
+<div class="profile mr-3">
+<%= image_tag(@user.avatar_thumbnail)%>
+<% if @user == current_user %>
+<%= button_to "Edit Profile", edit_user_registration_path, method: :get, class: "btn btn-outline-dark btn-sm btn-block" %>
+<% end %>
+</div> 
+<div class="media-body mb-5"> 
+<h4 class="mt-0 mb-0"><%= @user.username %></h4> 
+<p class="small mb-4"> 
+<% if @user == current_user %>
+    <%= button_to 'Aggiungi Libro', new_book_path, method: :get, class: "btn btn-outline-success" %>
+<%end%>
 
-            <%if @user == current_user %>
-             <%= link_to "Edit Profile", edit_user_registration_path %>
-          <% end %>
-          <br>
-
-
-            <% if @user != current_user %>
+<% if @user != current_user %>
 
     
-             <% if current_user.following?(@user) %>
-             <%= button_to "Unfollow", unfollow_user_path(@user), method: :delete , id:"button2"%>
+    <% if current_user.following?(@user) %>
+      <%= button_to "Unfollow", unfollow_user_path(@user), method: :delete , class: "btn btn-outline-danger"%>
 
-             <% else %>
-             <%= button_to "Follow", follow_user_path(@user) , method: :post , id:"button2" %>
-             <% end %>
+    <% else %>
+      <%= button_to "Follow", follow_user_path(@user) , method: :post , class: "btn btn-outline-success" %>
+    <% end %>
     
-          <% end %>
+<% end %>
 
-          <% if @user == current_user %>
-              <%= link_to 'Aggiungi Libro', new_book_path %>
-          <%end%>
+<i class="fas fa-map-marker-alt mr-2"></i></p> 
+</div> 
+</div> 
+</div> 
+<div class="bg-light p-4 d-flex justify-content-end text-center"> 
+<ul class="list-inline mb-0"> 
+<li class="list-inline-item"> 
+<h5 class="font-weight-bold mb-0 d-block"><%= @user.books.size %></h5><small class="text-muted"> 
+<i class="fas fa-image mr-1">
+</i>Libri pubblicati</small> 
+</li> 
+<li class="list-inline-item"> 
+<h5 class="font-weight-bold mb-0 d-block"><%= @user.followers_count %></h5>
+<small class="text-muted"> 
+<i class="fas fa-user mr-1">
+</i>Followers</small> 
+</li> 
+<li class="list-inline-item"> 
+<h5 class="font-weight-bold mb-0 d-block"><%= @user.following_by_type('User').size %></h5>
+<small class="text-muted"> 
+<i class="fas fa-user mr-1"></i>Following</small> 
+</li> 
+</ul> 
+</div> 
+<div class="px-4 py-3"> <h5 class="mb-0">I tuoi preferiti:</h5> 
+<div class="p-4 rounded shadow-sm bg-light"> 
+<p class="font-italic mb-0">Web Developer</p> 
+<p class="font-italic mb-0">Lives in New York</p> 
+<p class="font-italic mb-0">Photographer</p> 
+</div> 
+</div> 
+<div class="py-4 px-4"> 
+<div class="d-flex align-items-center justify-content-between mb-3"> 
+<h5 class="mb-0">I tuoi libri:</h5>
+<a href="#" class="btn btn-link text-muted">Show all</a> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div>
+</div>
 
+<section class="container">
+<div class= "container px-4 px-lg-5 mt-5">
+  <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+    <% Book.all.each do |book| %>
+    <div class="col mb-5">
 
-            <div class="d-flex justify-content-between text-center mt-5 mb-2">
-              <div>
-                <p class="mb-2 h5"><%= @user.followers_count %></p>
-                <p class="text-muted mb-0">Followers</p>
+       <% if book.user == @user %>
+
+          <div class="libro lg-4 md-4">
+            <div class="card" style="width: 18rem;"><%= image_tag book.cover.url(:medium), class: "card-img-sm-left" %>
+              <div class="card-body" style = "padding: 0.5em 1.2em;">
+               <h4 class="card-title h5 h4-sm"><%= book.titolo %></h4>
+               <h6 class="card-subtitle mb-2 text-muted">By: <%= book.user.username %></h6>
+                 <div class="card-text">
+                    Genere: <%= book.genere %>
+                 </div>
+              <p class="card-text"><%= book.trama %></p>
+                <%= link_to "Leggi", book , class:"card-link" %>
+                <br>
+               <% if book.user == current_user %>
+                    <%= link_to "Edit", edit_book_path(book) %>
+                    <%= button_to "Destroy", book, method: :delete %>
+                <%end%>
+
               </div>
-              <div class="px-3">
-                <p class="mb-2 h5"><%= @user.following_by_type('User').size %></p>
-                <p class="text-muted mb-0">Following</p>
-              </div>
+
             </div>
 
-      
-
-              </div>
-            </div>
           </div>
-        </div>
 
-      </div>
+        <% end %> 
+       
+    </div>
+
+    <% end %>
+   </div>
+</div>
 </section>
+
 
   
 
@@ -79,43 +136,3 @@
   
 <%end%>
 <hr>
-
-<section class="container">
-<div class= "container px-4 px-lg-5 mt-5">
-  <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-    <% Book.all.each do |book| %>
-    <div class="col mb-5">
-
-       <% if book.user == @user %>
-
-          <div class="libro lg-4 md-4">
-            <div class="card" style="width: 18rem;"><%= image_tag book.cover.url(:medium), class: "card-img-sm-left" %>
-              <div class="card-body" style = "padding: 0.5em 1.2em;">
-               <h4 class="card-title h5 h4-sm"><%= book.titolo %></h4>
-               <h6 class="card-subtitle mb-2 text-muted">By: <%= book.user.username %></h6>
-                 <div class="card-text">
-                    Genere: <%= book.genere %>
-                 </div>
-              <p class="card-text">Trama?</p>
-                <%= link_to "Leggi", book , class:"card-link" %>
-                <br>
-               <% if book.user == current_user %>
-                    <%= link_to "Edit", edit_book_path(book) %>
-                    <%= button_to "Destroy", book, method: :delete %>
-                <%end%>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        <% end %> 
-       
-    </div>
-
-    <% end %>
-   </div>
-</div>
-</section>
-

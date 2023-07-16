@@ -1,14 +1,27 @@
 <%= stylesheet_link_tag "style2.css" %>
 
-<div class="modal-content2 animate">
-<h1 class="frasesign2"><strong>Cercavi questo?</strong></h1>
-<br>
-<div id="grid-container">
-<% @users.each do |user| %>
+<h2>Lista degli utenti iscritti su WeShelf:</h2>
+
+<section class="container">
+<div class= "container px-4 px-lg-5 mt-5">
+  <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+    <% @users.each do |user| %>
+    <div class="col mb-5">
+
     <div id="modal-content1"> 
-<h2 class="fraseuser"><strong><%= user.username %></strong></h2>
-<%= link_to "Vai al profilo", user, id: "scritta" %>
+     <h2 class="fraseuser"><strong><%= user.username %></strong></h2>
+       Followers: <%= user.followers_count %>
+       Follows: <%= user.following_by_type('User').size %>
+       <br>
+      <%= link_to "Vai al profilo", user, id: "scritta" %>
+    </div>
+
+       
+       
+    </div>
+
+    <% end %>
+   </div>
 </div>
-<% end %>
-</div>
-</div>
+</section>
+

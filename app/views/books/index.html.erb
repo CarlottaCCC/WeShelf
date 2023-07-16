@@ -40,69 +40,48 @@
 
 <%= link_to "Ordina i libri in base ai like", ordina_path%>
 
-<ul>
-<% @books.each do |book| %>
+<section class="container">
+<div class= "container px-4 px-lg-5 mt-5">
+  <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+    <% Book.all.each do |book| %>
+    <div class="col mb-5">
 
-  <div class="card" id="blocco">
-  <div class="card-body">
+          <div class="libro lg-4 md-4">
+            <div class="card" style="width: 18rem;"><%= image_tag book.cover.url(:medium), class: "card-img-sm-left" %>
+              <div class="card-body" style = "padding: 0.5em 1.2em;">
+               <h4 class="card-title h5 h4-sm"><%= book.titolo %></h4>
+               <h6 class="card-subtitle mb-2 text-muted">By: <%= book.user.username %></h6>
+                 <div class="card-text">
+                    Genere: <%= book.genere %>
+                 </div>
+                 Trama:
+                 <br>
+              <p class="card-text"><%= book.trama %></p>
+                <%= link_to "Leggi", book , class:"card-link" %>
+                <br>
+               <% if user_signed_in? %>
 
-<li>
-<div class="card-title">
-<%if book.visibility != 'privato' %>
-<!-- <td><%= book.user.try(:username) %></td> -->
-<td><%= book.titolo %></td>
-<td><%= link_to "Leggi", book, id: "leggi" %></td>
+              <% if current_user.following?(book) %>
+                <%= button_to "Rimuovi dai preferiti", unfollow_book_path(book), method: :delete, class: "btn btn-danger" %>
 
+              <% else %>
+                <%= button_to "Aggiungi ai preferiti", follow_book_path(book), method: :post, class: "btn btn-success" %>
+              <% end %>
+
+
+                <%end%>
+
+              </div>
+
+            </div>
+
+          </div>
+       
+    </div>
+
+    <% end %>
+   </div>
 </div>
+</section>
 
-<% if user_signed_in? %>
-
-<% if current_user.following?(book) %>
-<%= link_to "Rimuovi dai preferiti", unfollow_book_path(book), data: { turbo_method: :delete }, id:"pref" %>
-
-<% else %>
-<%= link_to "Aggiungi ai preferiti", follow_book_path(book) , data: { turbo_method: :post }, id:"nopref"  %>
-<% end %>
-
-
-<%end%>
-
-
-<li> 
-<div class="card-text" id="trama">
-<%= book.trama %>
-</div>
-</li>
-
-
-<li> 
-<div class="card-text" id="genere">
-<%= book.genere %>
-</div>
-</li>
-
-
-<div class="card-img" id="img">
-<%= image_tag book.cover.url(:medium), :class => "immagine" %>
-<br>
-</div>
-
-</div>
-</div>
-
-<li>
-<div class="tratti">
----------------------------------------------
-</div>
-</li>
-<li>
-<div class="tratti">
----------------------------------------------
-</div>
-</li>
-<% end %>
-
-
-<%end%>
-</ul>
 

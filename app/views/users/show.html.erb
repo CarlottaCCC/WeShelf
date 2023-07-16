@@ -16,6 +16,7 @@
             <%if @user == current_user %>
              <%= link_to "Edit Profile", edit_user_registration_path %>
           <% end %>
+          <br>
 
 
             <% if @user != current_user %>
@@ -29,6 +30,10 @@
              <% end %>
     
           <% end %>
+
+          <% if @user == current_user %>
+              <%= link_to 'Aggiungi Libro', new_book_path %>
+          <%end%>
 
 
             <div class="d-flex justify-content-between text-center mt-5 mb-2">
@@ -75,43 +80,42 @@
 <%end%>
 <hr>
 
-<% Book.all.each do |book| %>
-  
-<% if book.user == @user %>
-  <div class="card2" id="blocco2">
-  <div class="card-body">
-  <div class="card-title4">
-<td><%= book.titolo %></td>
-<td><%= link_to "Leggi", book , id:"link_leggi"%></td>
+<section class="container">
+<div class= "container px-4 px-lg-5 mt-5">
+  <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+    <% Book.all.each do |book| %>
+    <div class="col mb-5">
 
-<% if book.user == current_user %>
-  <td><%= link_to "Edit", edit_book_path(book) %></td>
-  <td><%= button_to "Destroy", book, method: :delete %></td>
-<%end%>
+       <% if book.user == @user %>
 
-<li> 
-<div class="card-text", id="trama2">
-<%= book.trama%>
+          <div class="libro lg-4 md-4">
+            <div class="card" style="width: 18rem;"><%= image_tag book.cover.url(:medium), class: "card-img-sm-left" %>
+              <div class="card-body" style = "padding: 0.5em 1.2em;">
+               <h4 class="card-title h5 h4-sm"><%= book.titolo %></h4>
+               <h6 class="card-subtitle mb-2 text-muted">By: <%= book.user.username %></h6>
+                 <div class="card-text">
+                    Genere: <%= book.genere %>
+                 </div>
+              <p class="card-text">Trama?</p>
+                <%= link_to "Leggi", book , class:"card-link" %>
+                <br>
+               <% if book.user == current_user %>
+                    <%= link_to "Edit", edit_book_path(book) %>
+                    <%= button_to "Destroy", book, method: :delete %>
+                <%end%>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        <% end %> 
+       
+    </div>
+
+    <% end %>
+   </div>
 </div>
-</li>
+</section>
 
-<li> 
-<div class="card-text", id="genere2">
-<%= book.genere %>
-</div>
-</li>
-
-</li>
-<br>
-</div>
-  </div>
-  </div>
-<% end %>
-
-<% end %>
-
-<% if @user == current_user %>
-<%= link_to 'Nuovo Libro', new_book_path %>
-<%end%>
-
-<p>Find me in app/views/users/show.html.erb</p>

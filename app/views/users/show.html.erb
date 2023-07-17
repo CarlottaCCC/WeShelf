@@ -8,6 +8,7 @@
 <div class="media align-items-end profile-head"> 
 <div class="profile mr-3">
 <%= image_tag(@user.avatar_thumbnail)%>
+
 <% if @user == current_user %>
 <%= button_to "Edit Profile", edit_user_registration_path, method: :get, class: "btn btn-outline-dark btn-sm btn-block" %>
 <% end %>
@@ -30,6 +31,7 @@
     <% end %>
     
 <% end %>
+
 
 <i class="fas fa-map-marker-alt mr-2"></i></p> 
 </div> 

@@ -27,27 +27,29 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
   
- <nav class="navbar navbar-expand-lg navbar-light ", style="background-color: #eeee;>
-  <a class="navbar-brand" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bookmark-heart" viewBox="0 0 16 16">
+ <nav class="navbar navbar-expand-lg navbar-light ", style="background-color: #eeee; ">
+  <div class="container-fluid">
+  <a class="navbar-brand" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-bookmark-heart" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z"/>
   <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
-</svg></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  </svg></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      
+      <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link_to "Home", root_path, class: "nav-link"%><span class="sr-only">(current)</span>
+        <%= link_to "Home", root_path, class: "nav-link"%>
       </li>
       <% if user_signed_in? %>
+
       <%= button_to "Log out", signout_path, method: :delete,class: "nav-link", id:"bot"%>
-      <<span class="sr-only">(current)</span>
 
         <li class="nav-item">
 
-        <%= link_to 'Vai al tuo profilo', user_path(current_user), class: "nav-link" %><span class="sr-only">(current)</span>
+        <%= link_to 'Vai al tuo profilo', user_path(current_user), class: "nav-link" %>
         
         </li>
 
@@ -55,25 +57,28 @@
         <%else%>
 
         <li class="nav-item">
-        <%= link_to "Sign up", signup_path, class: "nav-link" %><span class="sr-only">(current)</span>
+        <%= link_to "Sign up", signup_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-        <%= link_to "Sign in", signin_path, class: "nav-link"%><span class="sr-only">(current)</span>
+        <%= link_to "Sign in", signin_path, class: "nav-link"%>
         </li>
 
         <% end %>
 
         <li class="nav-item">
-        <%= link_to "Lista dei libri pubblicati", books_path, class: "nav-link"%> <span class="sr-only">(current)</span>
+        <%= link_to "Lista dei libri pubblicati", books_path, class: "nav-link"%>
         </li>
         <li class="nav-item">
-        <%= link_to "Lista degli utenti iscritti", users_path, class: "nav-link" %><span class="sr-only">(current)</span>
+        <%= link_to "Lista degli utenti iscritti", users_path, class: "nav-link" %>
         </li>
        
 
-      </li>
+      </ul>
+
+    </div>
   </div>
 </nav>
+
 
     <%= yield %>
    
@@ -84,6 +89,11 @@
     Logged in as <%= current_user.email%> [<%= link_to 'Logout',
     destroy_user_session_path, :method => :delete%>]
     <% end %>
+
+    <script type="text/javascript">
+        $(document).on('click',function(){ 
+          $('.navbar .collapse').collapse('hide');})
+    </script>
 
     <script>
     var swiper = new Swiper('.swiper-container', {

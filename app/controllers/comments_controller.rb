@@ -9,6 +9,16 @@ class CommentsController < ApplicationController
 
     @comment = Comment.find(params[:id])
   end
+  def update
+    @comment = Comment.find(params[:id])
+    @chapter = @comment.chapter
+    if @comment.update(comment_params)
+      redirect_to @chapter, notice: 'Review was successfully updated'
+    else
+      render :edit
+      end
+    end
+
 
     def create
         @chapter = Chapter.find(params[:chapter_id])

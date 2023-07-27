@@ -1,1 +1,8 @@
-<%= render "form", comment: @comment %>
+<% if @comment.errors.any? %>
+  <h3>I seguenti errori hanno impedito al commento di essere salvato:</h3>
+  <ul>
+    <% @comment.errors.full_messages.each do |msg| %>
+     <li><%= msg %></li> 
+    <% end %>
+  </ul>
+<% end %>

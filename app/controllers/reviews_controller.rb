@@ -42,8 +42,13 @@ class ReviewsController < ApplicationController
       @book = Book.find(params[:book_id])
       @review = @book.reviews.create(review_params)
       @review.user = current_user
-      @review.save
-      redirect_to book_path(@book)
+      if @review.save
+        redirect_to book_path(@book)
+      else
+        render :new
+      
+      end
+      
     end
   
     private

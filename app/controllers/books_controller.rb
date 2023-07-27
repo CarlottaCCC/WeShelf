@@ -61,7 +61,7 @@ class BooksController < ApplicationController
 
       redirect_to @book, notice: 'Book was successfully created'
     else
-      render :new 
+      render :errore
       end
   end
 

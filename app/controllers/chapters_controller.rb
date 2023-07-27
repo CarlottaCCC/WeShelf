@@ -18,7 +18,12 @@ class ChaptersController < ApplicationController
   def create
     @book = Book.find(params[:book_id])
     @chapter = @book.chapters.create(chapter_params)
-    redirect_to book_path(@book)
+    if @chapter.save
+      redirect_to book_path(@book)
+    else 
+      render 'new'
+    end
+    
   
   end
 

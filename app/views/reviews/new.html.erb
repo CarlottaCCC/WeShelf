@@ -1,1 +1,8 @@
-<%= render "form", review: @review %>
+<% if @review.errors.any? %>
+  <h3>I seguenti errori hanno impedito alla recensione di essere salvato:</h3>
+  <ul>
+    <% @review.errors.full_messages.each do |msg| %>
+     <li><%= msg %></li> 
+    <% end %>
+  </ul>
+<% end %>

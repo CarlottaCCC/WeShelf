@@ -26,7 +26,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :username, id:"labelr" %><i>(leave blank if you don't want to change it)</i><br />
+    <%= f.label :username, id:"labelr" %><i>(leave blank if you don't want to change it)</i>
+    <em>(6 characters minimum)</em>
     <%= f.text_field :username, autofocus: true, autocomplete: "email" %>
   </div>
 

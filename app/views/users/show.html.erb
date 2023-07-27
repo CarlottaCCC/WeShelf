@@ -59,9 +59,13 @@
 </div> 
 <div class="px-4 py-3"> <h5 class="mb-0">I tuoi preferiti:</h5> 
 <div class="p-4 rounded shadow-sm bg-light"> 
-<p class="font-italic mb-0">Web Developer</p> 
-<p class="font-italic mb-0">Lives in New York</p> 
-<p class="font-italic mb-0">Photographer</p> 
+
+<% @user.following_by_type('Book').each do |book| %>
+
+<%= link_to book.titolo, book_path(book) %> <br>
+
+<% end %>
+
 </div> 
 </div> 
 <div class="py-4 px-4"> 
@@ -120,21 +124,4 @@
 
 
       
-   
-
-
-<div class="fraseuser3">
-<u><h2>Favorite books:</h2></u>
-</div>
-<br>
-<% @user.following_by_type('Book').each do |book| %>
-  <div class="card2" id="blocco2">
-  <div class="card-body">
-  <div class="card-title2">
-    <%= book.titolo %>
-  </div>
-  </div>
-  </div>
   
-<%end%>
-<hr>

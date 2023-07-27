@@ -58,6 +58,8 @@
 
 <% if @book.user == current_user %>
 
+<% if @book.stato != "completato" %>
+
 <div class="nuovocapitolo">
 
 
@@ -77,6 +79,8 @@
 </p>
 <% end %>
 </div>
+
+<%end%>
 
 <%end%>
 

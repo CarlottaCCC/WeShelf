@@ -166,13 +166,18 @@
 
  <div class="segn">
  <p> 
+  <%= (review.flags.count) >= 1 ? 'Le Segnalazioni totali sono : ' : 'Nessuna segnalazione'%>
   <%= review.flags.count %>
-   <%= (review.flags.count) == 1 ? 'Segnalazioni' : 'Nessuna segnalazione'%>
+   
 </p>
  </div>
  
     <%end%>
     </div>
+<%if review.flags.count >= 5 %>
+<%review.destroy%>
+<%redirect(@book)%>
+<%end%>
 <% end %>
 
 </div>

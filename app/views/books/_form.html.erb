@@ -1,38 +1,42 @@
+<%= stylesheet_link_tag "style.css" %>
+<div class="contenitore3">
 <%= form_with model: @book do |form| %>
-  <div>
-    <%= form.label :titolo %><br>
-    <%= form.text_field :titolo %>
+<div class="sottocontenitore3">
+  <div class="partecommento3">
+    <%= form.label :titolo, id:"labelt3" %><br>
+    <%= form.text_field :titolo, id:"textt3" %>
     
   </div>
 
-  <div>
-    <%= form.label :trama %><br>
-    <%= form.text_area :trama %><br>
+  <div class="partecommento3">
+    <%= form.label :trama, id:"labelt3" %><br>
+    <%= form.text_area :trama, id:"textedit3" %><br>
     
   </div>
   
 
-  <div>
-    <%= form.label :tag %><br>
-    <%= form.text_field :tag %><br>
+  <div class="partecommento3">
+    <%= form.label :tag, id:"labelt3" %><br>
+    <%= form.text_field :tag, id:"textt3" %><br>
     
   </div>
 
-  <div>
-    <%= form.label :genere %><br>
-    <%= form.text_field :genere %><br>
+  <div class="partecommento3">
+    <%= form.label :genere, id:"labelt3" %><br>
+    <%= form.text_field :genere, id:"textt3" %><br>
    
   </div>
 
-  <div>
-    <%= form.label :Copertina %><br>
-    <%= form.file_field :cover %>
-    
+  <div class="partecommento3">
+    <div class="subparte">
+    <%= form.label :Copertina, id:"labelt3" %><br>
+    <%= form.file_field :cover, id:"file" %>
+    <div>
   </div>
 
-
-
-  <div>
-    <%= form.submit %>
+  <div class="partecommento3">
+    <%= form.submit :id => "botto2" %>
   </div>
+</div>
 <% end %>
+</div>

@@ -1,0 +1,8 @@
+<% if @book.errors.any? %>
+  <h3>I seguenti errori hanno impedito al libro di essere salvato:</h3>
+  <ul>
+    <% @book.errors.full_messages.each do |msg| %>
+     <li><%= msg %></li> 
+    <% end %>
+  </ul>
+<% end %>

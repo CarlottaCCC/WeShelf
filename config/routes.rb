@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  
   resources :posts
   root "pages#home"
   
   get "about" => 'pages#aboutus'
   get "ordina" => 'books#ordina'
+  
   #root "books#index"
   #get 'books/:id/chapters/new', to: 'chapters#new'
 
@@ -49,6 +51,10 @@ Rails.application.routes.draw do
       end
 
     resources :chapters, shallow: true do
+
+      get 'translations/index'
+      get 'translations/translate'
+      post 'translations/translate', as: :translate
       
       member do 
         post 'vote', to: 'votes#create'

@@ -26,8 +26,12 @@ class CommentsController < ApplicationController
         @comment = @chapter.comments.create(comment_params)
         #@comment2 = @user.comments.create(comment_params)
         @comment.user = current_user
-        @comment.save
-        redirect_to chapter_path(@chapter)
+        if @comment.save
+          redirect_to chapter_path(@chapter)
+        else
+          render :new
+
+        end
       end
 
       def destroy 

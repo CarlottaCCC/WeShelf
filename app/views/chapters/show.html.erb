@@ -6,6 +6,8 @@
 <p class="p" id="p"><%= @chapter.testo %></p>
 </div>
 </div>
+
+<center><%= link_to "Traduci!", chapter_translations_index_path(@chapter)%></center>
 <div class="likecap">
 Likes: 
 <p class="votes"><%= @chapter.votes_for.up.size %></p>
@@ -77,3 +79,4 @@ Likes:
 </div>             
 
 <%end%>
+

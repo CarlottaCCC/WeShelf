@@ -58,6 +58,10 @@ gem "omniauth"
 gem "omniauth-google-oauth2"
 gem "omniauth-rails_csrf_protection"
 
+#GOOGLE TRANSLATE
+gem 'excon'
+gem 'i18n_data'
+
 
 #ADMIN
 gem "activeadmin"

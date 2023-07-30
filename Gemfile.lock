@@ -117,6 +117,30 @@ GEM
     climate_control (0.2.0)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
+    cucumber (8.0.0)
+      builder (~> 3.2, >= 3.2.4)
+      cucumber-ci-environment (~> 9.0, >= 9.0.4)
+      cucumber-core (~> 11.0, >= 11.0.0)
+      cucumber-cucumber-expressions (~> 15.1, >= 15.1.1)
+      cucumber-gherkin (~> 23.0, >= 23.0.1)
+      cucumber-html-formatter (~> 19.1, >= 19.1.0)
+      cucumber-messages (~> 18.0, >= 18.0.0)
+      diff-lcs (~> 1.5, >= 1.5.0)
+      mime-types (~> 3.4, >= 3.4.1)
+      multi_test (~> 1.1, >= 1.1.0)
+      sys-uname (~> 1.2, >= 1.2.2)
+    cucumber-ci-environment (9.2.0)
+    cucumber-core (11.0.0)
+      cucumber-gherkin (~> 23.0, >= 23.0.1)
+      cucumber-messages (~> 18.0, >= 18.0.0)
+      cucumber-tag-expressions (~> 4.1, >= 4.1.0)
+    cucumber-cucumber-expressions (15.2.0)
+    cucumber-gherkin (23.0.1)
+      cucumber-messages (~> 18.0, >= 18.0.0)
+    cucumber-html-formatter (19.2.0)
+      cucumber-messages (~> 18.0, >= 18.0.0)
+    cucumber-messages (18.0.0)
+    cucumber-tag-expressions (4.1.0)
     date (3.3.3)
     debug (1.8.0)
       irb (>= 1.5.0)
@@ -127,6 +151,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    diff-lcs (1.5.0)
     dotenv (2.8.1)
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
@@ -215,6 +240,7 @@ GEM
     mini_portile2 (2.8.2)
     minitest (5.18.1)
     msgpack (1.7.1)
+    multi_test (1.1.0)
     multi_xml (0.6.0)
     net-imap (0.3.6)
       date
@@ -342,6 +368,8 @@ GEM
       mini_portile2 (~> 2.8.0)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
+    sys-uname (1.2.3)
+      ffi (~> 1.1)
     terrapin (0.6.0)
       climate_control (>= 0.0.3, < 1.0)
     thor (1.2.2)
@@ -384,6 +412,7 @@ DEPENDENCIES
   bootstrap (~> 4.3.1)
   cancancan
   capybara
+  cucumber
   debug
   devise
   dotenv-rails

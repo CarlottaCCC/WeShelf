@@ -10,7 +10,7 @@
 
 
 <center><h1 class="frase">Bentornato!</h1></center>
-<center><%= link_to 'Vai al tuo profilo', user_path(current_user), id: "profilo" %></center>
+<center><%= link_to 'Vai al tuo profilo', user_path(current_user), id: "profilo",name: "profilo" %></center>
 <% else %>
 <center><h1 class="frase">Benvenuto su WeShelf!</h1></center>
 <% end %>

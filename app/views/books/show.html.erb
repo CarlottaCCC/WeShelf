@@ -88,6 +88,8 @@
 
 <% if user_signed_in? %>
 
+<% if @book.user != current_user %>
+
 
 <%if Review.where(user_id:current_user.id,book_id:@book.id).empty?%>
 <div class="nuovarecensione">
@@ -110,6 +112,7 @@
 </div>
 
 
+<%end%>
 <%end%>
 <%end%>
 

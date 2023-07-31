@@ -22,8 +22,7 @@ Rails.application.routes.draw do
     get "signup" => 'devise/registrations#new'
     delete "signout" => 'devise/sessions#destroy'
     get "users" => 'users#index'
-    get "followers" => 'users#followers'
-    get "following" => 'users#following'
+    
 
   end
 
@@ -31,6 +30,9 @@ Rails.application.routes.draw do
     member do 
       post 'follow', to: 'follows#create'
       delete 'unfollow', to: 'follows#destroy'
+      get 'follows/index_followers'
+      get 'follows/index_following'
+      
     end
 
 

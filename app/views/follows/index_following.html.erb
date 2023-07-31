@@ -1,0 +1,25 @@
+<h1>Follows di <%= @user.username %>:</h1>
+
+<section class="container">
+<div class= "container px-4 px-lg-5 mt-5">
+  <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+    <% @following.each do |follower| %>
+    <div class="col mb-5">
+
+    <div id="modal-content1"> 
+     <h2 class="fraseuser"><strong><%= follower.username %></strong></h2>
+       Followers: <%= follower.followers_count %>
+       Follows: <%= follower.following_by_type('User').size %>
+       <br>
+      <%= link_to "Vai al profilo", follower, id: "scritta" %>
+    </div>
+
+       
+       
+    </div>
+
+    <% end %>
+   </div>
+</div>
+</section>
+

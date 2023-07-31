@@ -17,6 +17,20 @@ class FollowsController < ApplicationController
 
     end
 
+    def index_following
+
+        @user = User.find(params[:id])
+        @following = @user.following_by_type('User')
+
+    end
+
+    def index_followers 
+
+        @user = User.find(params[:id])
+        @followers = @user.followers
+
+    end
+
 
   end
   

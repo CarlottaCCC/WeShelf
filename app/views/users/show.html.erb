@@ -48,12 +48,12 @@
 <h5 class="font-weight-bold mb-0 d-block"><%= @user.followers_count %></h5>
 <small class="text-muted"> 
 <i class="fas fa-user mr-1">
-</i>Followers</small> 
+</i><%= link_to "Followers", follows_index_followers_user_path(@user) %></small> 
 </li> 
 <li class="list-inline-item"> 
 <h5 class="font-weight-bold mb-0 d-block"><%= @user.following_by_type('User').size %></h5>
 <small class="text-muted"> 
-<i class="fas fa-user mr-1"></i>Following</small> 
+<i class="fas fa-user mr-1"></i><%= link_to "Follows", follows_index_following_user_path(@user) %></small> 
 </li> 
 </ul> 
 </div> 
@@ -71,7 +71,6 @@
 <div class="py-4 px-4"> 
 <div class="d-flex align-items-center justify-content-between mb-3"> 
 <h5 class="mb-0">I tuoi libri:</h5>
-<a href="#" class="btn btn-link text-muted">Show all</a> 
 </div> 
 </div> 
 </div> 

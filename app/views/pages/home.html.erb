@@ -44,8 +44,8 @@
 <h1 class="frase_ricerca"><strong>Search a user from his username!</strong></h1>
 
 <%= form_for "", url: users_path, role: "search", method: :get do  |form| %>
-<%= text_field_tag :search, @search_term_user, id: "campo", placeholder: "Search" %>
-<%= form.submit "Search", id: 'bottone1' %>
+<%= text_field_tag :search, @search_term_user, id: "searchuser", placeholder: "Search" %>
+<%= form.submit "Search", id: 'bottoneuser' %>
 <%end%>
 
 </div>

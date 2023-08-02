@@ -9,6 +9,8 @@
 <div class="profile mr-3">
 <%= image_tag(@user.avatar_thumbnail)%>
 
+<% if current_user %>
+
 <% if @user == current_user %>
 <%= button_to "Edit Profile", edit_user_registration_path, method: :get, class: "btn btn-outline-dark btn-sm btn-block" %>
 <% end %>
@@ -30,6 +32,8 @@
       <%= button_to "Follow", follow_user_path(@user) , method: :post , class: "btn btn-outline-success" %>
     <% end %>
     
+<% end %>
+
 <% end %>
 
 

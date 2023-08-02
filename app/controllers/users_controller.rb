@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def index 
     @users = User.all
     
-    if params[:searchtitle]
+    if params[:search]
     @search_term_user = params[:search]
     @users = @users.search_by(@search_term_user)
     end

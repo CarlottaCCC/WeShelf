@@ -8,7 +8,6 @@ class Book < ApplicationRecord
     validates :titolo, presence: true
     validates :tag, presence: true
     validates :genere, presence: true
-    validates :cover, presence: true
     acts_as_followable
     acts_as_votable
 

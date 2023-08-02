@@ -2211,3 +2211,283 @@ Processing by PagesController#home as HTML
   Rendered layout layouts/application.html.erb (Duration: 3.3ms | Allocations: 5622)
 Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.2ms | Allocations: 6463)
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "sonountest"], ["LIMIT", 1]]
+  [1m[36mUser Create (10.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "full_name", "uid", "avatar_url", "provider", "admin", "username", "avatar_file_name", "avatar_content_type", "avatar_file_size", "avatar_updated_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "test@gmail.com"], ["encrypted_password", "$2a$04$HCJ7QShZj9L9xtKwJtEGp.T5pR5mBF7pqqqAP6xLq6xm3c9mANoh2"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-08-02 08:08:37.397046"], ["updated_at", "2023-08-02 08:08:37.397046"], ["full_name", nil], ["uid", nil], ["avatar_url", nil], ["provider", nil], ["admin", 0], ["username", "sonountest"], ["avatar_file_name", nil], ["avatar_content_type", nil], ["avatar_file_size", nil], ["avatar_updated_at", nil], ["confirmation_token", "AnzPbPQNn9SQofovdPsi"], ["confirmed_at", nil], ["confirmation_sent_at", "2023-08-02 08:08:37.397339"], ["unconfirmed_email", nil]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "sonountest"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Create (0.7ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["key", "u4g2ap7q2yr7sjtf5aftkc2u83yy"], ["filename", "default_profile.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "test"], ["byte_size", 25641], ["checksum", "Rj2jiWEsYdzl7QNUBRTbew=="], ["created_at", "2023-08-02 08:08:37.591617"]]
+  [1m[36mActiveStorage::Attachment Create (0.7ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "avatar"], ["record_type", "User"], ["record_id", 1], ["blob_id", 1], ["created_at", "2023-08-02 08:08:37.594785"]]
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-08-02 08:08:37.597436"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[36m  Disk Storage (1.0ms) [0m[32mUploaded file to key: u4g2ap7q2yr7sjtf5aftkc2u83yy (checksum: Rj2jiWEsYdzl7QNUBRTbew==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 2171bcf6-f951-4797-9c0b-9279734aa166) to Async(default) with arguments: #<GlobalID:0x00007f9948ca79f0 @uri=#<URI::GID gid://weshelf/ActiveStorage::Blob/1>>
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-08-02 10:08:37 +0200
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2171bcf6-f951-4797-9c0b-9279734aa166]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2171bcf6-f951-4797-9c0b-9279734aa166] Discarded ActiveStorage::AnalyzeJob due to a ActiveRecord::RecordNotFound.
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2171bcf6-f951-4797-9c0b-9279734aa166] Performed ActiveStorage::AnalyzeJob (Job ID: 2171bcf6-f951-4797-9c0b-9279734aa166) from Async(default) in 28.1ms
+Processing by Users::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (Duration: 4.9ms | Allocations: 1742)
+  Rendered users/sessions/new.html.erb within layouts/application (Duration: 7428.5ms | Allocations: 317409)
+  Rendered layout layouts/application.html.erb (Duration: 7451.4ms | Allocations: 334987)
+Completed 200 OK in 7509ms (Views: 7463.8ms | ActiveRecord: 0.0ms | Allocations: 341210)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "sonountest"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "full_name", "uid", "avatar_url", "provider", "admin", "username", "avatar_file_name", "avatar_content_type", "avatar_file_size", "avatar_updated_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "test@gmail.com"], ["encrypted_password", "$2a$04$Z6/uaKOuKvVMgxerJTlzK.IsQTFxdSNDSF/z7Lw7w6lu7saeXBWJ."], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-08-02 08:10:18.039202"], ["updated_at", "2023-08-02 08:10:18.039202"], ["full_name", nil], ["uid", nil], ["avatar_url", nil], ["provider", nil], ["admin", 0], ["username", "sonountest"], ["avatar_file_name", nil], ["avatar_content_type", nil], ["avatar_file_size", nil], ["avatar_updated_at", nil], ["confirmation_token", "2sNgE8RyWkdsy82fQDAd"], ["confirmed_at", nil], ["confirmation_sent_at", "2023-08-02 08:10:18.039487"], ["unconfirmed_email", nil]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "sonountest"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["key", "xyz1wp8aubmuoxfp2zol52zpueje"], ["filename", "default_profile.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "test"], ["byte_size", 25641], ["checksum", "Rj2jiWEsYdzl7QNUBRTbew=="], ["created_at", "2023-08-02 08:10:18.149077"]]
+  [1m[36mActiveStorage::Attachment Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "avatar"], ["record_type", "User"], ["record_id", 1], ["blob_id", 1], ["created_at", "2023-08-02 08:10:18.151349"]]
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-08-02 08:10:18.152958"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[36m  Disk Storage (0.8ms) [0m[32mUploaded file to key: xyz1wp8aubmuoxfp2zol52zpueje (checksum: Rj2jiWEsYdzl7QNUBRTbew==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 684f9c23-71fd-43e2-aa0a-2517225b700d) to Async(default) with arguments: #<GlobalID:0x000055e1db540390 @uri=#<URI::GID gid://weshelf/ActiveStorage::Blob/1>>
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-08-02 10:10:18 +0200
+[ActiveJob] [ActiveStorage::AnalyzeJob] [684f9c23-71fd-43e2-aa0a-2517225b700d]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [684f9c23-71fd-43e2-aa0a-2517225b700d] Discarded ActiveStorage::AnalyzeJob due to a ActiveRecord::RecordNotFound.
+[ActiveJob] [ActiveStorage::AnalyzeJob] [684f9c23-71fd-43e2-aa0a-2517225b700d] Performed ActiveStorage::AnalyzeJob (Job ID: 684f9c23-71fd-43e2-aa0a-2517225b700d) from Async(default) in 27.64ms
+Processing by Users::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (Duration: 5.6ms | Allocations: 1742)
+  Rendered users/sessions/new.html.erb within layouts/application (Duration: 5065.1ms | Allocations: 89065)
+  Rendered layout layouts/application.html.erb (Duration: 5085.5ms | Allocations: 106840)
+Completed 200 OK in 5112ms (Views: 5099.1ms | ActiveRecord: 0.0ms | Allocations: 113064)
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-08-02 10:10:23 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 246ms (ActiveRecord: 0.4ms | Allocations: 2130)
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-08-02 10:10:23 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (Duration: 1.5ms | Allocations: 766)
+  Rendered users/sessions/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 2258)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 4361)
+Completed 200 OK in 12ms (Views: 10.2ms | ActiveRecord: 0.0ms | Allocations: 4974)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "sonountest"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "full_name", "uid", "avatar_url", "provider", "admin", "username", "avatar_file_name", "avatar_content_type", "avatar_file_size", "avatar_updated_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "test@gmail.com"], ["encrypted_password", "$2a$04$QP83oDbCQvUmChU.g/jMo.dKAZ8MAwJ6MkZVzAdrOdtLRGrYcIFly"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-08-02 08:13:28.774911"], ["updated_at", "2023-08-02 08:13:28.774911"], ["full_name", nil], ["uid", nil], ["avatar_url", nil], ["provider", nil], ["admin", 0], ["username", "sonountest"], ["avatar_file_name", nil], ["avatar_content_type", nil], ["avatar_file_size", nil], ["avatar_updated_at", nil], ["confirmation_token", "SVb69muSD_vVVstqYSk4"], ["confirmed_at", nil], ["confirmation_sent_at", "2023-08-02 08:13:28.775193"], ["unconfirmed_email", nil]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "sonountest"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["key", "i9j32h58ilzxek8447so3cgq8qob"], ["filename", "default_profile.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "test"], ["byte_size", 25641], ["checksum", "Rj2jiWEsYdzl7QNUBRTbew=="], ["created_at", "2023-08-02 08:13:28.880628"]]
+  [1m[36mActiveStorage::Attachment Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "avatar"], ["record_type", "User"], ["record_id", 1], ["blob_id", 1], ["created_at", "2023-08-02 08:13:28.882769"]]
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-08-02 08:13:28.884497"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[36m  Disk Storage (0.9ms) [0m[32mUploaded file to key: i9j32h58ilzxek8447so3cgq8qob (checksum: Rj2jiWEsYdzl7QNUBRTbew==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: a3e6a349-f757-4e94-bdc2-ef1bb03fc59a) to Async(default) with arguments: #<GlobalID:0x000055d586f5dc58 @uri=#<URI::GID gid://weshelf/ActiveStorage::Blob/1>>
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-08-02 10:13:28 +0200
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a3e6a349-f757-4e94-bdc2-ef1bb03fc59a]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a3e6a349-f757-4e94-bdc2-ef1bb03fc59a] Discarded ActiveStorage::AnalyzeJob due to a ActiveRecord::RecordNotFound.
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a3e6a349-f757-4e94-bdc2-ef1bb03fc59a] Performed ActiveStorage::AnalyzeJob (Job ID: a3e6a349-f757-4e94-bdc2-ef1bb03fc59a) from Async(default) in 28.93ms
+Processing by Users::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (Duration: 4.4ms | Allocations: 1742)
+  Rendered users/sessions/new.html.erb within layouts/application (Duration: 4912.3ms | Allocations: 88382)
+  Rendered layout layouts/application.html.erb (Duration: 4934.5ms | Allocations: 106157)
+Completed 200 OK in 4957ms (Views: 4944.8ms | ActiveRecord: 0.0ms | Allocations: 112381)
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-08-02 10:13:34 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 15ms (ActiveRecord: 0.4ms | Allocations: 2130)
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-08-02 10:13:34 +0200
+Processing by Users::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (Duration: 2.1ms | Allocations: 766)
+  Rendered users/sessions/new.html.erb within layouts/application (Duration: 6.2ms | Allocations: 2258)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 4361)
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 0.0ms | Allocations: 4978)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "sonountest"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "full_name", "uid", "avatar_url", "provider", "admin", "username", "avatar_file_name", "avatar_content_type", "avatar_file_size", "avatar_updated_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "test@gmail.com"], ["encrypted_password", "$2a$04$o5vZsZIAUJwwON8WOKuQeu03QwgxsN/7i7ydzwC/Il3xrKs7cS5YG"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-08-02 08:14:44.825117"], ["updated_at", "2023-08-02 08:14:44.825117"], ["full_name", nil], ["uid", nil], ["avatar_url", nil], ["provider", nil], ["admin", 0], ["username", "sonountest"], ["avatar_file_name", nil], ["avatar_content_type", nil], ["avatar_file_size", nil], ["avatar_updated_at", nil], ["confirmation_token", "i61tMfuxS2bSN87DsqyW"], ["confirmed_at", nil], ["confirmation_sent_at", "2023-08-02 08:14:44.825389"], ["unconfirmed_email", nil]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "sonountest"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["key", "4euqjstdt2u3gvgq73ril948flf5"], ["filename", "default_profile.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "test"], ["byte_size", 25641], ["checksum", "Rj2jiWEsYdzl7QNUBRTbew=="], ["created_at", "2023-08-02 08:14:44.928947"]]
+  [1m[36mActiveStorage::Attachment Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "avatar"], ["record_type", "User"], ["record_id", 1], ["blob_id", 1], ["created_at", "2023-08-02 08:14:44.931338"]]
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-08-02 08:14:44.932905"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[36m  Disk Storage (0.8ms) [0m[32mUploaded file to key: 4euqjstdt2u3gvgq73ril948flf5 (checksum: Rj2jiWEsYdzl7QNUBRTbew==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 29fb28f6-bff1-4f1a-9ca0-c20c1eadfc1f) to Async(default) with arguments: #<GlobalID:0x000055ffdd27de08 @uri=#<URI::GID gid://weshelf/ActiveStorage::Blob/1>>
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "sonountest"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "confirmed_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-08-02 08:14:44.941972"], ["confirmed_at", "2023-08-02 08:14:44.939593"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-08-02 10:14:44 +0200
+[ActiveJob] [ActiveStorage::AnalyzeJob] [29fb28f6-bff1-4f1a-9ca0-c20c1eadfc1f]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [29fb28f6-bff1-4f1a-9ca0-c20c1eadfc1f] Discarded ActiveStorage::AnalyzeJob due to a ActiveRecord::RecordNotFound.
+[ActiveJob] [ActiveStorage::AnalyzeJob] [29fb28f6-bff1-4f1a-9ca0-c20c1eadfc1f] Performed ActiveStorage::AnalyzeJob (Job ID: 29fb28f6-bff1-4f1a-9ca0-c20c1eadfc1f) from Async(default) in 27.38ms
+Processing by Users::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (Duration: 4.5ms | Allocations: 1742)
+  Rendered users/sessions/new.html.erb within layouts/application (Duration: 4972.0ms | Allocations: 88704)
+  Rendered layout layouts/application.html.erb (Duration: 4992.2ms | Allocations: 106479)
+Completed 200 OK in 5015ms (Views: 5002.7ms | ActiveRecord: 0.0ms | Allocations: 112703)
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-08-02 10:14:50 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+Redirected to http://www.example.com/
+Completed 303 See Other in 40ms (ActiveRecord: 0.3ms | Allocations: 2602)
+Started GET "/" for 127.0.0.1 at 2023-08-02 10:14:50 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."likes" ASC[0m
+  Rendered pages/home.html.erb within layouts/application (Duration: 10.4ms | Allocations: 3960)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 6142)
+Completed 200 OK in 17ms (Views: 14.4ms | ActiveRecord: 1.1ms | Allocations: 6983)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "sonountest"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "full_name", "uid", "avatar_url", "provider", "admin", "username", "avatar_file_name", "avatar_content_type", "avatar_file_size", "avatar_updated_at", "confirmation_token", "confirmed_at", "confirmation_sent_at", "unconfirmed_email") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "test@gmail.com"], ["encrypted_password", "$2a$04$eQ/FLIrN5n2TslDJQVsdZO1X3kpAjELoBDLQCPbw.ucpOhZi3szGa"], ["reset_password_token", nil], ["reset_password_sent_at", nil], ["remember_created_at", nil], ["created_at", "2023-08-02 08:15:12.830662"], ["updated_at", "2023-08-02 08:15:12.830662"], ["full_name", nil], ["uid", nil], ["avatar_url", nil], ["provider", nil], ["admin", 0], ["username", "sonountest"], ["avatar_file_name", nil], ["avatar_content_type", nil], ["avatar_file_size", nil], ["avatar_updated_at", nil], ["confirmation_token", "z_NDSzbAyLWnzP3n3rSH"], ["confirmed_at", nil], ["confirmation_sent_at", "2023-08-02 08:15:12.830915"], ["unconfirmed_email", nil]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "sonountest"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["key", "srb8patht99xmtuwjnso62f58nzg"], ["filename", "default_profile.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "test"], ["byte_size", 25641], ["checksum", "Rj2jiWEsYdzl7QNUBRTbew=="], ["created_at", "2023-08-02 08:15:12.938467"]]
+  [1m[36mActiveStorage::Attachment Create (0.4ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "avatar"], ["record_type", "User"], ["record_id", 1], ["blob_id", 1], ["created_at", "2023-08-02 08:15:12.940953"]]
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-08-02 08:15:12.943649"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[36m  Disk Storage (0.8ms) [0m[32mUploaded file to key: srb8patht99xmtuwjnso62f58nzg (checksum: Rj2jiWEsYdzl7QNUBRTbew==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: c57da078-bedf-4450-adb5-8cec92a82621) to Async(default) with arguments: #<GlobalID:0x000055a50fa6d1f0 @uri=#<URI::GID gid://weshelf/ActiveStorage::Blob/1>>
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? AND "users"."id" != ? LIMIT ?[0m  [["username", "sonountest"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "confirmed_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2023-08-02 08:15:12.953125"], ["confirmed_at", "2023-08-02 08:15:12.950399"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-08-02 10:15:12 +0200
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c57da078-bedf-4450-adb5-8cec92a82621]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c57da078-bedf-4450-adb5-8cec92a82621] Discarded ActiveStorage::AnalyzeJob due to a ActiveRecord::RecordNotFound.
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c57da078-bedf-4450-adb5-8cec92a82621] Performed ActiveStorage::AnalyzeJob (Job ID: c57da078-bedf-4450-adb5-8cec92a82621) from Async(default) in 28.92ms
+Processing by Users::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (Duration: 5.3ms | Allocations: 1742)
+  Rendered users/sessions/new.html.erb within layouts/application (Duration: 4925.5ms | Allocations: 88969)
+  Rendered layout layouts/application.html.erb (Duration: 4947.4ms | Allocations: 106744)
+Completed 200 OK in 4973ms (Views: 4960.9ms | ActiveRecord: 0.0ms | Allocations: 112968)
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-08-02 10:15:18 +0200
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+Redirected to http://www.example.com/
+Completed 303 See Other in 12ms (ActiveRecord: 0.3ms | Allocations: 2602)
+Started GET "/" for 127.0.0.1 at 2023-08-02 10:15:18 +0200
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY "books"."likes" ASC[0m
+  Rendered pages/home.html.erb within layouts/application (Duration: 9.8ms | Allocations: 3953)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 6135)
+Completed 200 OK in 16ms (Views: 14.1ms | ActiveRecord: 1.0ms | Allocations: 6976)
+Started GET "/users/1" for 127.0.0.1 at 2023-08-02 10:15:18 +0200
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "avatar"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mActiveStorage::VariantRecord Load (0.3ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ? AND "active_storage_variant_records"."variation_digest" = ? LIMIT ?[0m  [["blob_id", 1], ["variation_digest", "G4LGMVvWmxCFhr8ZOjmlfa5mhuk="], ["LIMIT", 1]]
+[36m  Disk Storage (0.3ms) [0m[34mDownloaded file from key: srb8patht99xmtuwjnso62f58nzg[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mActiveStorage::VariantRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_variant_records" ("blob_id", "variation_digest") VALUES (?, ?)[0m  [["blob_id", 1], ["variation_digest", "G4LGMVvWmxCFhr8ZOjmlfa5mhuk="]]
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "ActiveStorage::VariantRecord"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "ActiveStorage::VariantRecord"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["key", "ht8gqdc3k3c250w3569i5o3ykrfs"], ["filename", "default_profile.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "test"], ["byte_size", 2031], ["checksum", "/qlVDBlzjB8tCfzm/g+jzg=="], ["created_at", "2023-08-02 08:15:19.652446"]]
+  [1m[36mActiveStorage::Attachment Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "image"], ["record_type", "ActiveStorage::VariantRecord"], ["record_id", 1], ["blob_id", 2], ["created_at", "2023-08-02 08:15:19.655016"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[36m  Disk Storage (0.7ms) [0m[32mUploaded file to key: ht8gqdc3k3c250w3569i5o3ykrfs (checksum: /qlVDBlzjB8tCfzm/g+jzg==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 6dfa171a-05e9-43b2-a1f8-a5224715181b) to Async(default) with arguments: #<GlobalID:0x000055a511d367e0 @uri=#<URI::GID gid://weshelf/ActiveStorage::Blob/2>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6dfa171a-05e9-43b2-a1f8-a5224715181b]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6dfa171a-05e9-43b2-a1f8-a5224715181b] Discarded ActiveStorage::AnalyzeJob due to a ActiveRecord::RecordNotFound.
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6dfa171a-05e9-43b2-a1f8-a5224715181b] Performed ActiveStorage::AnalyzeJob (Job ID: 6dfa171a-05e9-43b2-a1f8-a5224715181b) from Async(default) in 2.77ms
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBook Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "books" WHERE "books"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mFollow Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "follows" WHERE "follows"."followable_id" = ? AND "follows"."followable_type" = ? AND "follows"."blocked" = ?[0m  [["followable_id", 1], ["followable_type", "User"], ["blocked", 0]]
+  [1m[36mUser Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "follows" ON "follows"."followable_type" = ? AND "follows"."followable_id" = "users"."id" WHERE "follows"."blocked" = ? AND "follows"."follower_id" = ? AND "follows"."follower_type" = ? AND "follows"."followable_type" = ?[0m  [["followable_type", "User"], ["blocked", 0], ["follower_id", 1], ["follower_type", "User"], ["followable_type", "User"]]
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" INNER JOIN "follows" ON "follows"."followable_type" = ? AND "follows"."followable_id" = "books"."id" WHERE "follows"."blocked" = ? AND "follows"."follower_id" = ? AND "follows"."follower_type" = ? AND "follows"."followable_type" = ?[0m  [["followable_type", "Book"], ["blocked", 0], ["follower_id", 1], ["follower_type", "User"], ["followable_type", "Book"]]
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  Rendered users/show.html.erb within layouts/application (Duration: 1457.9ms | Allocations: 57363)
+  Rendered layout layouts/application.html.erb (Duration: 1461.3ms | Allocations: 59654)
+Completed 200 OK in 1570ms (Views: 1458.9ms | ActiveRecord: 5.0ms | Allocations: 62150)
+Started GET "/books/new" for 127.0.0.1 at 2023-08-02 10:15:19 +0200
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (Duration: 84.9ms | Allocations: 2876)
+  Rendered books/new.html.erb within layouts/application (Duration: 114.7ms | Allocations: 3080)
+  Rendered layout layouts/application.html.erb (Duration: 117.7ms | Allocations: 5264)
+Completed 200 OK in 145ms (Views: 119.7ms | ActiveRecord: 0.1ms | Allocations: 24870)
+Started POST "/books" for 127.0.0.1 at 2023-08-02 10:15:19 +0200
+Processing by BooksController#create as HTML
+  Parameters: {"book"=>{"titolo"=>"test", "trama"=>"Ecco questa è la trama del libro test scritto", "tag"=>"Amore", "genere"=>"Romanzo"}, "commit"=>"Create Book"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("titolo", "trama", "tag", "genere", "created_at", "updated_at", "user_id", "cover_file_name", "cover_content_type", "cover_file_size", "cover_updated_at", "likes", "stato", "visibility") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["titolo", "test"], ["trama", "Ecco questa è la trama del libro test scritto"], ["tag", "Amore"], ["genere", "Romanzo"], ["created_at", "2023-08-02 08:15:19.962574"], ["updated_at", "2023-08-02 08:15:19.962574"], ["user_id", 1], ["cover_file_name", nil], ["cover_content_type", nil], ["cover_file_size", nil], ["cover_updated_at", nil], ["likes", nil], ["stato", "inpubblicazione"], ["visibility", "visibile"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/books/1
+Completed 302 Found in 7ms (ActiveRecord: 0.7ms | Allocations: 1562)
+Started GET "/books/1" for 127.0.0.1 at 2023-08-02 10:15:19 +0200
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mChapter Load (0.2ms)[0m  [1m[34mSELECT "chapters".* FROM "chapters" WHERE "chapters"."book_id" = ?[0m  [["book_id", 1]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 1]]
+  Rendered books/show.html.erb within layouts/application (Duration: 69.0ms | Allocations: 27953)
+  Rendered layout layouts/application.html.erb (Duration: 72.1ms | Allocations: 30137)
+Completed 200 OK in 75ms (Views: 71.0ms | ActiveRecord: 2.0ms | Allocations: 30673)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m

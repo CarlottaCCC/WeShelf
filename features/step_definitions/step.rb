@@ -1,7 +1,7 @@
 require 'devise'
 require 'devise/test/integration_helpers'
 
-Given('i am singed in') do
+Given('i am signed in') do
   user = User.create(email: "test@gmail.com",password: "ponziopilato",username:"sonountest")
   user.skip_confirmation!
   user.save!
@@ -14,10 +14,7 @@ Given('i am singed in') do
   expect(page).to have_current_path(root_path)
   click_link "profilo"
   expect(page).to have_current_path(user_path(user))
-  
 end
-
-
 
 When('i click on {string}') do |button_text|
   click_button(button_text)
@@ -37,6 +34,54 @@ Then('i should have the book') do
   expect(page).to have_content("Book was successfully created")
 end
 
+#*****************************************************************
+
+Given('i am signed in again') do
+  user = User.create(email: "test@gmail.com",password: "ponziopilato",username:"sonountest")
+  user.skip_confirmation!
+  user.save!
+  visit new_user_session_path
+  fill_in "email", with: user.email
+  #fill_in "Username", with: user.username
+  fill_in "password", with: user.password
+  #fill_in "Password confirmation", with: user.password
+  click_button "Log in"
+  expect(page).to have_current_path(root_path)
+  click_link "profilo"
+  expect(page).to have_current_path(user_path(user))
+  
+end
+
+When('i click on {string} again') do |button_text|
+  click_button(button_text)
+  expect(page).to have_current_path(new_book_path)
+end
+
+When('i fail to create a generic book, i leave the title blank') do
+  book = Book.create(titolo: "test",trama: "Ecco questa è la trama del libro test scritto",tag: "Amore", genere: "Romanzo")
+  fill_in "titolo", with:""
+  fill_in "trama", with:"Ecco questa è la trama del libro test scritto"
+  fill_in "tag", with:"Amore"
+  fill_in "genere", with:"Romanzo"
+  click_button "botto2"
+end
+
+Then('i should have an error for the blank title') do
+  expect(page).to have_content("Titolo can't be blank")
+end
+
+#***************************************************************************
+ 
+Given('i am not logged and in home page') do
+visit root_path
+end
+
+Then('i cannot click {string}') do |text|
+expect(page).to have_no_content(text)
+end 
+
+#***************************************************************************
+
 Given('i search for a account that i have created') do
   user = User.create(email: "test@gmail.com",password: "ponziopilato",username:"sonountest")
   user.skip_confirmation!
@@ -54,9 +99,7 @@ Given('i search for a account that i have created') do
   fill_in "searchuser", with: user.username
   click_button "bottoneuser"
   #expect(page).to have_current_path(users_path)
-  
 
-  
 end
 
 When('i click on the link {string}') do |link_text|
@@ -67,7 +110,3 @@ Then('i should be in the profile page') do
   expect(page).to have_current_path(user_path(:id => 1))
 end
 
-
-
-
-  

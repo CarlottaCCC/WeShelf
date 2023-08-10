@@ -7,7 +7,7 @@
 </div>
 </div>
 
-<center><%= link_to "Traduci!", chapter_translations_index_path(@chapter)%></center>
+<center><h3><%= link_to "Traduci!", chapter_translations_index_path(@chapter)%></h3></center>
 <div class="likecap">
 Likes: 
 <p class="votes"><%= @chapter.votes_for.up.size %></p>
@@ -16,9 +16,9 @@ Likes:
 
 <% if user_signed_in? %>
 <% if current_user.voted_up_on? @chapter %>
-<%= button_to "Unvote", unvote_chapter_path(@chapter), method: :delete, id:"bottone1" %>
+<%= button_to "Unlike", unvote_chapter_path(@chapter), method: :delete, id:"bottone1" %>
 <% else %>
-<%= button_to "Vote", vote_chapter_path(@chapter), method: :post, id:"bottone1" %>
+<%= button_to "Like", vote_chapter_path(@chapter), method: :post, id:"bottone1" %>
 <% end %>
 <% end %>
 
@@ -45,9 +45,9 @@ Likes:
   <div class="destroy">
   
 
-   <%= button_to "Destroy", comment, method: :delete %>
+   <%= button_to "Cancella", comment, method: :delete, class: "btn btn-danger", id:"btn7"  %>
 
-  <%= link_to "Edit", edit_comment_path(comment) %>
+  <%= link_to "Modifica", edit_comment_path(comment) %>
   </div>
 
   <%end%>

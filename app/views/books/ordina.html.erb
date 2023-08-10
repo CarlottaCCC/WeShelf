@@ -1,5 +1,5 @@
 <%= stylesheet_link_tag "style.css" %>
-<h1>Lista dei libri ordinati</h1>
+<h1 class="titolo_ordina">Lista dei libri ordinati</h1>
 
 <% @books.each do |book| %>
 
@@ -35,14 +35,14 @@
 
 
 <li> 
-<div class="card-text" id="trama">
+<div class="card-text" id="trama2">
 <%= book.trama %>
 </div>
 </li>
 
 
 <li> 
-<div class="card-text" id="genere">
+<div class="card-text" id="genere2">
 <%= book.genere %>
 </div>
 </li>

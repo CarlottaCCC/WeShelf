@@ -12,24 +12,24 @@
 <% if current_user %>
 
 <% if @user == current_user %>
-<%= button_to "Edit Profile", edit_user_registration_path, method: :get, class: "btn btn-outline-dark btn-sm btn-block" %>
+<%= button_to "Modifica il profilo", edit_user_registration_path, method: :get, class: "btn btn-outline-warning btn-sm btn-block", id:"btn1" %>
 <% end %>
 </div> 
 <div class="media-body mb-5"> 
 <h4 class="mt-0 mb-0"><%= @user.username %></h4> 
 <p class="small mb-4"> 
 <% if @user == current_user %>
-    <%= button_to 'Aggiungi Libro', new_book_path, method: :get, class: "btn btn-outline-success" %>
+    <%= button_to 'Aggiungi Libro', new_book_path, method: :get, class: "btn btn-outline-success", id:"btn2" %>
 <%end%>
 
 <% if @user != current_user %>
 
     
     <% if current_user.following?(@user) %>
-      <%= button_to "Unfollow", unfollow_user_path(@user), method: :delete , class: "btn btn-outline-danger"%>
+      <%= button_to "Unfollow", unfollow_user_path(@user), method: :delete , class: "btn btn-outline-danger", id:"btn3"%>
 
     <% else %>
-      <%= button_to "Follow", follow_user_path(@user) , method: :post , class: "btn btn-outline-success" %>
+      <%= button_to "Follow", follow_user_path(@user) , method: :post , class: "btn btn-outline-success", id:"btn4" %>
     <% end %>
     
 <% end %>
@@ -103,8 +103,8 @@
                 <%= link_to "Leggi", book , class:"card-link" %>
                 <br>
                <% if book.user == current_user %>
-                    <%= link_to "Edit", edit_book_path(book) %>
-                    <%= button_to "Destroy", book, method: :delete %>
+                    <%= link_to "Modifica la storia", edit_book_path(book) %>
+                    <%= button_to "Cancella la storia", book, method: :delete, class:"distr" %>
                 <%end%>
 
               </div>

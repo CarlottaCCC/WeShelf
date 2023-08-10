@@ -1,21 +1,21 @@
 <%= stylesheet_link_tag "style.css" %>
-<div class="contenitore2">
+<div class="contenitore3">
 <%= form_with model: @review do |form| %>
-  <div class="sottocontenitore">
-  <div class="partet">
-    <%= form.label :ranking, id:"labelt" %><br>
+  <div class="sottocontenitore3">
+  <div class="partecommento3">
+    <%= form.label :ranking, id:"labelt3" %><br>
     <%= form.text_field :ranking, id:"textt" %>
     
   </div>
 
-  <div class="partecommento">
-    <%= form.label :testo, id:"labeledit" %><br>
+  <div class="partecommento3">
+    <%= form.label :testo, id:"labelt3" %><br>
     <%= form.text_area :testo, id:"textedit" %><br>
     
   </div>
   
 
-  <div class="sub">
+  <div class="parteccomento3">
     <%= form.submit :id => "botto"%>
   </div>
   </div>

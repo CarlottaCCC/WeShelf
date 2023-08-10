@@ -14,17 +14,17 @@
 
 <%if @book.user == current_user %>
 <%if @book.stato == 'inpubblicazione' %>
-<p> <%= link_to "Clicca qui per dichiarare il completamento del libro", dichiarapubblicato_book_path(@book) %> (ATTENZIONE AZIONE NON REVERSIBILE!) </p>
+<p class="dett"> <%= link_to "Clicca qui per dichiarare il completamento del libro", dichiarapubblicato_book_path(@book) %> (ATTENZIONE AZIONE NON REVERSIBILE!) </p>
 <%end%>
 <%end%>
 
 
 <%if @book.user == current_user %>
 <%if @book.visibility == 'privato' %>
-<p> <%= link_to "Clicca qui per rendere il tuo libro visibile", cambiaprivacy_book_path(@book) %>  </p>
+<p class="dett"> <%= link_to "Clicca qui per rendere il tuo libro visibile", cambiaprivacy_book_path(@book) %>  </p>
 <%end%>
 <%if @book.visibility == 'visibile' %>
-<p> <%= link_to "Clicca qui per rendere il tuo libro privato", cambiaprivacy_book_path(@book) %>  </p>
+<p class="dett"> <%= link_to "Clicca qui per rendere il tuo libro privato", cambiaprivacy_book_path(@book) %>  </p>
 <%end%>
 <%end%>
 
@@ -43,7 +43,7 @@
      <br>
 
      <% if @book.user == current_user %>
-     <%= button_to "Cancella", chapter, method: :delete %>
+     <%= button_to "Cancella", chapter, method: :delete, id:"bottone10" %>
      
       
      <div class="edit">
@@ -151,7 +151,7 @@
 
   </div>
  <% if review.user == current_user %>
-  <%= button_to "Cancella", review, method: :delete %>
+  <%= button_to "Cancella", review, method: :delete, class: "btn btn-danger", id:"btn6" %>
   <%= link_to "Modifica recensione", edit_review_path(review), id: "edit" %>
   <% end %>
 

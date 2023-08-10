@@ -127,7 +127,8 @@ input{
   color: black;
   text-align: center;
   text-decoration: solid;
-  border-bottom: 5px solid orange;
+  /*
+  border-bottom: 5px solid orange;*/
   font-weight: bold;
   margin-right: 2%;
 }
@@ -302,10 +303,58 @@ margin-bottom: 5%;
   color: black;
   text-align: center;
   text-decoration: solid;
-  border-bottom: 5px solid orange;
+  /*
+  border-bottom: 5px solid orange;*/
   font-weight: bold;
   margin-right: 2%;
   margin-top: 4%;
+}
+
+.lutenti{
+  margin-left: 3%;
+  font-size: 37px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#btn1:hover{
+  background: orange !important;
+  color: white;
+}
+
+#btn2:hover{
+  background: green !important;
+}
+
+#btn3:hover{
+  background: red !important;
+}
+
+#btn4:hover{
+  background: green !important;
+}
+
+#btn6{
+  background: red !important;
+  margin-left: 2% !important;
+}
+
+#btn6:hover, #btn7:hover{
+  background: red !important;
+}
+
+#btn7{
+  background: red !important;
+}
+
+.distr{
+  border-radius: 0%;
+  background: orange;
+  border: none;
+  font-size: 18px;
+}
+
+.distr:hover{
+  background: rgb(255, 115, 0) !important;
 }
 
 

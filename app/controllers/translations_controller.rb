@@ -37,7 +37,7 @@ class TranslationsController < ApplicationController
   def api_request(path, method: :get, body: nil)
     params = {
       headers: {
-        'x-rapidapi-key': '0e0801f943msh2aa370393f50f49p1eec70jsnb47cf8539d6f',
+        'x-rapidapi-key': '1b7ff65dabmsh6aa645db82a03cap1209cejsn5449c41a6d18',
         'content-type': 'application/x-www-form-urlencoded'
       }
     }

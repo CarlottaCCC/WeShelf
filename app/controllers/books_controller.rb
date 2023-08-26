@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_test_user, if: -> { Rails.env.test? }
   #validates :titolo, presence: true
   #validates :trama, presence: true, length: { minimum: 10 }
 
@@ -85,7 +86,11 @@ class BooksController < ApplicationController
           @books = Book.order(:likes).reverse()
       end
 
-        private 
+        private
+
+        def set_test_user
+          @current_user = User.first
+        end
 
         def book_params
           params.require(:book).permit(:titolo, :trama, :tag, :genere, :cover)

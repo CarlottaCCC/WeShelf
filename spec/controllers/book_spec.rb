@@ -34,7 +34,7 @@ RSpec.describe BooksController, type: :controller do
     request.env['warden'] = instance_double(Warden::Proxy, authenticate!: user, authenticated?: true, user: user)
   end
 
-  # Simula un utente connesso
+
   before do
     allow(controller).to receive(:current_user).and_return(user)
   end
@@ -55,38 +55,38 @@ RSpec.describe BooksController, type: :controller do
     end
   end
 
-  #describe "POST #create" do
-    #context "with valid params" do
-      #it "creates a new Book" do
-        #expect {
-          #post :create, params: {book: valid_attributes}
-        #}.to change(Book, :count).by(1)
-      #end
+  describe "POST #create" do
+    context "with valid params" do
+      it "creates a new Book" do
+        expect {
+          post :create, params: {book: valid_attributes}
+        }.to change(Book, :count).by(1)
+      end
 
-      #it "assigns a newly created book as @book" do
-        #post :create, params: {book: valid_attributes}
-        #expect(assigns(:book)).to be_a(Book)
-        #expect(assigns(:book)).to be_persisted
-      #end
+      it "assigns a newly created book as @book" do
+        post :create, params: {book: valid_attributes}
+        expect(assigns(:book)).to be_a(Book)
+        expect(assigns(:book)).to be_persisted
+      end
 
-      #it "redirects to the created book" do
-        #post :create, params: {book: valid_attributes}
-        #expect(response).to redirect_to(Book.last)
-      #end
-    #end
+      it "redirects to the created book" do
+        post :create, params: {book: valid_attributes}
+        expect(response).to redirect_to(Book.last)
+      end
+    end
 
-    #context "with invalid params" do
-      #it "assigns a newly created but unsaved book as @book" do
-        #post :create, params: {book: invalid_attributes}
-        #expect(assigns(:book)).to be_a_new(Book)
-      #end
+    context "with invalid params" do
+      it "assigns a newly created but unsaved book as @book" do
+        post :create, params: {book: invalid_attributes}
+        expect(assigns(:book)).to be_a_new(Book)
+      end
 
-     # it "re-renders the 'new' template" do
-        #post :create, params: {book: invalid_attributes}
-        #expect(response).to render_template("new")
-      #end
-    #end
-  #end
+      it "re-renders the 'new' template" do
+        post :create, params: {book: invalid_attributes}
+        expect(response).to render_template("errore")
+      end
+    end
+  end
 
   describe "PUT #update" do
     context "with valid params" do
@@ -134,20 +134,20 @@ RSpec.describe BooksController, type: :controller do
     end
   end
 
-  #describe "DELETE #destroy" do
-    #it "destroys the requested book" do
-      #book = Book.create! valid_attributes
-      #expect {
-        #delete :destroy, params: {id: book.to_param}
-      #}.to change(Book, :count).by(-1)
-    #end
+  describe "DELETE #destroy" do
+    it "destroys the requested book" do
+      book = Book.create! valid_attributes
+      expect {
+        delete :destroy, params: {id: book.to_param}
+      }.to change(Book, :count).by(-1)
+    end
 
-    #it "redirects to the books list" do
-      #book = Book.create! valid_attributes
-      #delete :destroy, params: {id: book.to_param}
-      #expect(response).to redirect_to(books_url)
-    #end
-  #end
+    it "redirects to the books list" do
+      book = Book.create! valid_attributes
+      delete :destroy, params: {id: book.to_param}
+      expect(response).to redirect_to(root_path)
+    end
+  end
 end
 
 

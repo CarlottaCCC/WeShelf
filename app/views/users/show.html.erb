@@ -84,19 +84,17 @@
 </div>
 
 <section class="container">
-<div class= "container px-4 px-lg-5 mt-5">
-  <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-    <% Book.all.each do |book| %>
-    <div class="col mb-5">
+  <div class="container px-4 px-lg-5 mt-5">
+    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
-       <% if book.user == @user %>
-
-          <div class="libro lg-4 md-4">
-            <div class="card" style="width: 18rem;"><%= image_tag book.cover.url(:medium), class: "card-img-sm-left" %>
-              <div class="card-body" style = "padding: 0.5em 1.2em;">
-               <h4 class="card-title h5 h4-sm"><%= book.titolo %></h4>
-               <h6 class="card-subtitle mb-2 text-muted">By: <%= book.user.username %></h6>
-                 <div class="card-text">
+      <% Book.all.each do |book| %>
+        <% if book.user == @user %>
+          <div class="col mb-5">
+            <div class="card" style="width: 18rem;">
+              <%= image_tag book.cover.url(:medium), class: "card-img-sm-left" %>
+              <div class="card-body" style="padding: 0.5em 1.2em;">
+                <!-- Resto del contenuto della card -->
+                <div class="card-text">
                     Genere: <%= book.genere %>
                  </div>
               <p class="card-text"><%= book.trama %></p>
@@ -108,19 +106,16 @@
                 <%end%>
 
               </div>
-
             </div>
-
           </div>
+        <% end %>
+      <% end %>
 
-        <% end %> 
-       
     </div>
-
-    <% end %>
-   </div>
-</div>
+  </div>
 </section>
+
+
 
 
   

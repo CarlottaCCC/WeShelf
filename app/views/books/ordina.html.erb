@@ -18,10 +18,10 @@
 <% if user_signed_in? %>
 
 <% if current_user.following?(book) %>
-<%= link_to "Rimuovi dai preferiti", unfollow_book_path(book), data: { turbo_method: :delete }, id:"pref" %>
+<%= button_to "Rimuovi dai preferiti", unfollow_book_path(book), method: :delete, class: "btn btn-outline-danger", id:"btn3" %>
 
 <% else %>
-<%= link_to "Aggiungi ai preferiti", follow_book_path(book) , data: { turbo_method: :post }, id:"nopref"  %>
+<%= button_to "Aggiungi ai preferiti", follow_book_path(book) , method: :post, class: "btn btn-outline-success", id:"btn4" %>
 <% end %>
 
 <% if book.user == current_user %>

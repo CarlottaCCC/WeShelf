@@ -156,13 +156,14 @@
   <% end %>
 
 <% if user_signed_in? %>
-
+<% if review.user != current_user %>
   <div class="bott">
  <p>
  <%= button_to 'Report', review_flags_path(review), method: :post, id: "bott" %> 
 
  </p>
  </div>
+ <%end%>
 
 <%end%>
 

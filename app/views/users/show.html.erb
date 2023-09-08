@@ -106,16 +106,6 @@
               <p class="card-text"><%= book.trama %></p>
                 <%= link_to "Leggi", book , class:"card-link" %>
                 <br>
-                <% if current_user != book.user %>
-                  
-                  <% if current_user.following?(book) %>
-                   <%= button_to "Rimuovi dai preferiti", unfollow_book_path(book), method: :delete, class: "btn btn-outline-danger", id:"btn3" %>
-
-                 <% else %>
-                   <%= button_to "Aggiungi ai preferiti", follow_book_path(book), method: :post, class: "btn btn-outline-success", id:"btn4" %>
-                 <% end %>
-
-                <%end%>
                <% if book.user == current_user %>
                     <%= link_to "Modifica la storia", edit_book_path(book) %>
                     <%= button_to "Cancella la storia", book, method: :delete, class:"distr" %>
